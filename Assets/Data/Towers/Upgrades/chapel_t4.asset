@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618ccf354d2a1804da0151696357b8a7, type: 3}
+  m_Name: chapel_t4
+  m_EditorClassIdentifier: Bastiao.Runtime::TowerUpgradeData
+  displayName: Marca da Heresia
+  description: Inimigos na aura perdem armadura.
+  cost: 380
+  sprite: {fileID: 21300000, guid: 3eaef2af4e600f54f8e39ea6a2e55d2f, type: 3}
+  muzzleHeight: 2.5
+  stats:
+    damage: 0
+    damageType: 0
+    attackInterval: 1
+    range: 0
+    projectileSpeed: 0
+    armorPenetration: 0
+    splashRadius: 0
+    targets: 1
+    pierce: 0
+    critChance: 0
+    critMultiplier: 0
+    bossDamageMultiplier: 0
+    stunChance: 0
+    stunDuration: 0
+    burnDps: 0
+    burnDuration: 0
+    bleedDps: 0
+    bleedDuration: 0
+    slowAmount: 0
+    slowDuration: 0
+    vulnerability: 0
+    curseDuration: 0
+    armorShred: 0
+    curseSpreads: 0
+    groundFireDps: 0
+    groundFireDuration: 0
+    groundFireRadius: 0
+    chainCount: 0
+    chainRange: 0
+    chainFalloff: 0
+    executeThreshold: 0
+    auraRadius: 3.8
+    auraDamageBonus: 0.26
+    auraAttackSpeedBonus: 0.18
+    auraRangeBonus: 0.12
+    auraArmorShred: 5
+    commanderHealPerSecond: 14
+    trapDurability: 0

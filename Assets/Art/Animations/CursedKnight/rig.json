@@ -1,0 +1,149 @@
+{
+ "name": "CursedKnight",
+ "ppu": 32,
+ "height": 134,
+ "width": 136,
+ "feet": [
+  63.92,
+  134.0
+ ],
+ "parts": [
+  {
+   "name": "hips",
+   "parent": null,
+   "z": -10,
+   "pivot": [
+    63.92,
+    84.42
+   ]
+  },
+  {
+   "name": "weapon",
+   "parent": "armF",
+   "z": 0,
+   "pivot": [
+    29.92,
+    60.3
+   ],
+   "sprite": "parts/weapon.png",
+   "rect": [
+    0,
+    0,
+    136,
+    69
+   ]
+  },
+  {
+   "name": "legB",
+   "parent": "hips",
+   "z": 1,
+   "pivot": [
+    84.32,
+    83.08
+   ],
+   "sprite": "parts/legB.png",
+   "rect": [
+    70,
+    80,
+    44,
+    54
+   ]
+  },
+  {
+   "name": "legF",
+   "parent": "hips",
+   "z": 2,
+   "pivot": [
+    47.6,
+    83.08
+   ],
+   "sprite": "parts/legF.png",
+   "rect": [
+    26,
+    80,
+    37,
+    54
+   ]
+  },
+  {
+   "name": "armB",
+   "parent": "torso",
+   "z": 3,
+   "pivot": [
+    95.2,
+    41.54
+   ],
+   "sprite": "parts/armB.png",
+   "rect": [
+    84,
+    28,
+    40,
+    67
+   ]
+  },
+  {
+   "name": "skirt",
+   "parent": "hips",
+   "z": 4,
+   "pivot": [
+    65.28,
+    76.38
+   ],
+   "sprite": "parts/skirt.png",
+   "rect": [
+    42,
+    73,
+    47,
+    47
+   ]
+  },
+  {
+   "name": "torso",
+   "parent": "hips",
+   "z": 5,
+   "pivot": [
+    65.28,
+    80.4
+   ],
+   "sprite": "parts/torso.png",
+   "rect": [
+    35,
+    22,
+    67,
+    63
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "torso",
+   "z": 6,
+   "pivot": [
+    63.92,
+    48.24
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    47,
+    14,
+    36,
+    40
+   ]
+  },
+  {
+   "name": "armF",
+   "parent": "torso",
+   "z": 7,
+   "pivot": [
+    40.8,
+    40.2
+   ],
+   "sprite": "parts/armF.png",
+   "rect": [
+    9,
+    31,
+    50,
+    51
+   ]
+  }
+ ]
+}

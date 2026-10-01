@@ -1,0 +1,140 @@
+{
+ "name": "Ghoul",
+ "ppu": 32,
+ "height": 46,
+ "width": 70,
+ "feet": [
+  34.62,
+  44.62
+ ],
+ "parts": [
+  {
+   "name": "legBF",
+   "parent": "body",
+   "z": 0,
+   "pivot": [
+    24.93,
+    19.32
+   ],
+   "sprite": "parts/legBF.png",
+   "rect": [
+    20,
+    17,
+    9,
+    14
+   ]
+  },
+  {
+   "name": "tail",
+   "parent": "body",
+   "z": 1,
+   "pivot": [
+    15.23,
+    9.2
+   ],
+   "sprite": "parts/tail.png",
+   "rect": [
+    0,
+    6,
+    14,
+    14
+   ]
+  },
+  {
+   "name": "legFF",
+   "parent": "body",
+   "z": 2,
+   "pivot": [
+    48.47,
+    20.24
+   ],
+   "sprite": "parts/legFF.png",
+   "rect": [
+    43,
+    19,
+    12,
+    22
+   ]
+  },
+  {
+   "name": "body",
+   "parent": null,
+   "z": 3,
+   "pivot": [
+    34.62,
+    19.32
+   ],
+   "sprite": "parts/body.png",
+   "rect": [
+    11,
+    0,
+    46,
+    27
+   ]
+  },
+  {
+   "name": "legBN",
+   "parent": "body",
+   "z": 4,
+   "pivot": [
+    16.62,
+    16.56
+   ],
+   "sprite": "parts/legBN.png",
+   "rect": [
+    5,
+    13,
+    17,
+    24
+   ]
+  },
+  {
+   "name": "legFN",
+   "parent": "body",
+   "z": 5,
+   "pivot": [
+    38.78,
+    20.24
+   ],
+   "sprite": "parts/legFN.png",
+   "rect": [
+    33,
+    18,
+    12,
+    28
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "body",
+   "z": 6,
+   "pivot": [
+    53.32,
+    13.8
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    47,
+    0,
+    23,
+    20
+   ]
+  },
+  {
+   "name": "jaw",
+   "parent": "head",
+   "z": 7,
+   "pivot": [
+    58.17,
+    14.72
+   ],
+   "sprite": "parts/jaw.png",
+   "rect": [
+    56,
+    13,
+    13,
+    10
+   ]
+  }
+ ]
+}

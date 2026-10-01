@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df1d034f005aa442a7391cdc59945db, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: Bastiao.Runtime::GameConfig
+  commander: {fileID: 11400000, guid: adfa879a81a76b0478167175c3543084, type: 2}
+  skins:
+  - {fileID: 11400000, guid: f3f0e3dcccd491a4a81c19a36f0c61c6, type: 2}
+  - {fileID: 11400000, guid: b5c9f7f17184062419e6bcc73aa9bf69, type: 2}
+  - {fileID: 11400000, guid: 46ca42afc8378634eb83f554a0515c96, type: 2}
+  - {fileID: 11400000, guid: 364f9eb4142023f40a2cacd851f06c18, type: 2}
+  maps:
+  - {fileID: 11400000, guid: 738142ea6b1454441b2664ec62384832, type: 2}
+  - {fileID: 11400000, guid: be199334f727e634fa0e915da22dd216, type: 2}
+  towers:
+  - {fileID: 11400000, guid: f400c9b9002daba4a867d6090dd502c7, type: 2}
+  - {fileID: 11400000, guid: dc90907652cdc0840a22f3a144585c3c, type: 2}
+  - {fileID: 11400000, guid: ad98df77ff0a55045940f99266e10bc3, type: 2}
+  - {fileID: 11400000, guid: 56c2c1fe1b06a0e4a834ac58fcbe164c, type: 2}
+  - {fileID: 11400000, guid: 130a6a78d9e18594c8b78e7c27d6732c, type: 2}
+  - {fileID: 11400000, guid: 73f8c61e47dd7c44f8a67be7d1d2251e, type: 2}
+  - {fileID: 11400000, guid: a1b38542a39d12c4aa28508f3c581a21, type: 2}
+  meta: {fileID: 11400000, guid: 542a6219ea499d84bb2c704cba60da1f, type: 2}
+  audio: {fileID: 11400000, guid: 45af1e89298e20644b996b2e82a02c73, type: 2}
+  ui: {fileID: 11400000, guid: f76c793ae586f954ab8ce716a3424e07, type: 2}
+  sellRefund: 0.7
+  minPhysicalDamage: 0.15
+  sameWaveRefund: 1
+  gameSpeeds:
+  - 1
+  - 2
+  - 4
+  autoWaveDelay: 12

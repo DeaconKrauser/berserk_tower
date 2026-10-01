@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a36d403946800441abed943cd3acfb4, type: 3}
+  m_Name: UISkin
+  m_EditorClassIdentifier: Bastiao.Runtime::UISkin
+  panel: {fileID: 21300000, guid: 2d2f539d45be382459f0fb860dc784bb, type: 3}
+  panelDark: {fileID: 21300000, guid: 371b419b727a0e746ba937bddb3f89aa, type: 3}
+  panelSolid: {fileID: 21300000, guid: 588f4758448b9684d8e2443c3a5e8c7c, type: 3}
+  panelThin: {fileID: 21300000, guid: b399398b2a88ce8439d869afb41eeddf, type: 3}
+  plate: {fileID: 21300000, guid: 8f6d06fc4d7942346b751c8a10e085b7, type: 3}
+  card: {fileID: 21300000, guid: f4864a292742fa245af157d905fa1b65, type: 3}
+  cardSelected: {fileID: 21300000, guid: b41aeb6560c7c4748a397ae21405a64a, type: 3}
+  cardDisabled: {fileID: 21300000, guid: c51050012a0f14e4c848562b4a415e02, type: 3}
+  barFrame: {fileID: 21300000, guid: 982e1cb26bea8d8439eab7fc945c183e, type: 3}
+  divider: {fileID: 21300000, guid: e0353c2857fe5e741b98719e8042660c, type: 3}
+  vignette: {fileID: 21300000, guid: e9168ac1496e3f2418c7c90f1bed0dfb, type: 3}
+  buttonNormal: {fileID: 21300000, guid: 56e7f35020a0b8649b6d65c182360b8b, type: 3}
+  buttonHover: {fileID: 21300000, guid: aeca7a9a2896acb489f62e930ef38df3, type: 3}
+  buttonPressed: {fileID: 21300000, guid: 26d97afc4a03e75449eb546549116126, type: 3}
+  buttonDisabled: {fileID: 21300000, guid: f278b3620e05eb747a5de4a68f9e87ad, type: 3}
+  roundNormal: {fileID: 21300000, guid: 279700d3bed5dbe4bae1d2835dc783ca, type: 3}
+  roundHover: {fileID: 21300000, guid: 30eaa039c1ef70845a655efb6ddeb6c0, type: 3}
+  roundPressed: {fileID: 21300000, guid: 34ee8be3c1b2a3141a1a74a336f61224, type: 3}
+  roundActive: {fileID: 21300000, guid: 300f5c2aaf5de0a43ac9ada9249608d4, type: 3}
+  gold: {fileID: 21300000, guid: cc67419b7b995054da3f19403a08e0b7, type: 3}
+  heart: {fileID: 21300000, guid: 5f851520b64243d408a215fd444d607b, type: 3}
+  wave: {fileID: 21300000, guid: d7d327e442a4f1f468ff1ef0bb936090, type: 3}
+  skull: {fileID: 21300000, guid: 3f0d9e38712d1e04ab11ca6cb4d04375, type: 3}
+  boss: {fileID: 21300000, guid: a62cb267b688bbe40b1275716adde694, type: 3}
+  attack: {fileID: 21300000, guid: f98f0dcee4f2e1c438bf3e7a30ad3de5, type: 3}
+  archer: {fileID: 21300000, guid: ebc78ab669ffb2d4b8f12fa704965aed, type: 3}
+  axe: {fileID: 21300000, guid: 44830bd1939a2b24c9c49fd0085c06f4, type: 3}
+  armor: {fileID: 21300000, guid: 296a8b11a8871dc4fb1f46ae9e4f1bc0, type: 3}
+  fire: {fileID: 21300000, guid: 27a881172c54c4942903de2ba7e2d990, type: 3}
+  magic: {fileID: 21300000, guid: e6398547d012c084b9be270af8abec14, type: 3}
+  heal: {fileID: 21300000, guid: 83273ccc7212b0046a2acc5bfba48368, type: 3}
+  sell: {fileID: 21300000, guid: 5b6be77d52166a24e854530980f88573, type: 3}
+  upgrade: {fileID: 21300000, guid: 39d2f64f9e054df49a5e2223d10c06f7, type: 3}
+  menuBackground: {fileID: 21300000, guid: d541819327ae0d24ba5d7364c0259fad, type: 3}
+  commanderBackground: {fileID: 21300000, guid: 781670d8e8dc07b48925dea68334209f, type: 3}
+  skinsBackground: {fileID: 21300000, guid: 9b7dfef4ebfad96498bfc9d58e71341c, type: 3}
+  battlefieldBackground: {fileID: 21300000, guid: ce3c174409678e14d93a20b5f3bd27b6, type: 3}
+  titleFonts:
+  - Castellar
+  - Felix Titling
+  - Palatino Linotype
+  - Georgia
+  bodyFonts:
+  - Palatino Linotype
+  - Book Antiqua
+  - Georgia
+  - Times New Roman

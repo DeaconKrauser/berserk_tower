@@ -1,0 +1,411 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdbc5f30eeb6914dbc835d7c2feb80e, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: Bastiao.Runtime::AudioLibrary
+  mixer: {fileID: 24100000, guid: 36700036848c7b348b73f219070a3784, type: 2}
+  sounds:
+  - id: ui_click
+    category: 1
+    clips:
+    - {fileID: 8300000, guid: ea83166ecd3a99d49a2d5631810d450d, type: 3}
+    volume: 0.7
+    pitchJitter: 0.05
+    cooldown: 0.03
+    placeholder: 1
+  - id: ui_hover
+    category: 1
+    clips:
+    - {fileID: 8300000, guid: c0b6f79ab4866094786fb0ac13bb654b, type: 3}
+    volume: 0.35
+    pitchJitter: 0.05
+    cooldown: 0.05
+    placeholder: 1
+  - id: ui_select
+    category: 1
+    clips:
+    - {fileID: 8300000, guid: 6b85c939275d0f4479614e1ee0000663, type: 3}
+    volume: 0.6
+    pitchJitter: 0.03
+    cooldown: 0.05
+    placeholder: 1
+  - id: ui_error
+    category: 1
+    clips:
+    - {fileID: 8300000, guid: ccbd501deac0c4449aca72e495ad3884, type: 3}
+    volume: 0.55
+    pitchJitter: 0
+    cooldown: 0.2
+    placeholder: 1
+  - id: tower_select
+    category: 1
+    clips:
+    - {fileID: 8300000, guid: 78bff0c75652ae64db0c72a63e3e3aab, type: 3}
+    volume: 0.6
+    pitchJitter: 0.05
+    cooldown: 0.05
+    placeholder: 1
+  - id: build
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 992f40a240cb08c4589dfdc9b58e9bcf, type: 3}
+    volume: 0.8
+    pitchJitter: 0.04
+    cooldown: 0.1
+    placeholder: 1
+  - id: upgrade
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: fb811bda036e3be4ebd4bf92b7cbaee8, type: 3}
+    volume: 0.75
+    pitchJitter: 0
+    cooldown: 0.1
+    placeholder: 1
+  - id: sell
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: e8d0e48e507b2304d86485c31d2b7bd3, type: 3}
+    volume: 0.7
+    pitchJitter: 0.05
+    cooldown: 0.1
+    placeholder: 1
+  - id: archer_shot
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 01f63805255125546b894302e0fa1f10, type: 3}
+    - {fileID: 8300000, guid: 2a4d5cd48d4092e49a78cff386077aa9, type: 3}
+    - {fileID: 8300000, guid: 925b2a1b58d504c46b37e281cd3fb47c, type: 3}
+    volume: 0.45
+    pitchJitter: 0.08
+    cooldown: 0.05
+    placeholder: 1
+  - id: arrow_impact
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: a2ac8f8b26511d243be3b6142e85a12a, type: 3}
+    - {fileID: 8300000, guid: a19ae742927a71640be58ca60eb56cbf, type: 3}
+    volume: 0.35
+    pitchJitter: 0.1
+    cooldown: 0.05
+    placeholder: 1
+  - id: ballista_shot
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 5cf1084f6de6b8540b816e295bd5dad1, type: 3}
+    volume: 0.65
+    pitchJitter: 0.05
+    cooldown: 0.1
+    placeholder: 1
+  - id: ballista_impact
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 87d88649c4d03a04690170cf5743ed35, type: 3}
+    volume: 0.7
+    pitchJitter: 0.06
+    cooldown: 0.08
+    placeholder: 1
+  - id: pyre_cast
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: d6c69c9472fc0d740adc87d4fc0b8944, type: 3}
+    volume: 0.5
+    pitchJitter: 0.08
+    cooldown: 0.1
+    placeholder: 1
+  - id: fire_impact
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 57dfab1a03994a0469cd2c6cba21a8cd, type: 3}
+    - {fileID: 8300000, guid: 1029f3cb8d5440f4faeca21e8046aabe, type: 3}
+    volume: 0.6
+    pitchJitter: 0.08
+    cooldown: 0.08
+    placeholder: 1
+  - id: chapel_aura
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 6f1ee3ca0a062b742b8ec2ef21fc489f, type: 3}
+    volume: 0.35
+    pitchJitter: 0
+    cooldown: 1.5
+    placeholder: 1
+  - id: crow_curse
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 0dbc35c33535b6f44a73ba74fe356041, type: 3}
+    - {fileID: 8300000, guid: 94e567c11c657d24db09aec306fef69c, type: 3}
+    volume: 0.45
+    pitchJitter: 0.1
+    cooldown: 0.15
+    placeholder: 1
+  - id: crow_impact
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: be163a5ca4ca9904cbf2ba250ce6ea9b, type: 3}
+    volume: 0.35
+    pitchJitter: 0.1
+    cooldown: 0.1
+    placeholder: 1
+  - id: obelisk_cast
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: bf237cba0542c9b45ba623190146e224, type: 3}
+    volume: 0.55
+    pitchJitter: 0.06
+    cooldown: 0.1
+    placeholder: 1
+  - id: trap_trigger
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: d3d4330c62e82314b84fd352933880ad, type: 3}
+    volume: 0.5
+    pitchJitter: 0.1
+    cooldown: 0.08
+    placeholder: 1
+  - id: enemy_hit
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 303c2395eb0a26d4fb8141513d7012df, type: 3}
+    - {fileID: 8300000, guid: ec3b038ea81a33d41b5d4982e4e3c566, type: 3}
+    - {fileID: 8300000, guid: 894608e134e11fe49b194b68a033ddc1, type: 3}
+    volume: 0.3
+    pitchJitter: 0.15
+    cooldown: 0.04
+    placeholder: 1
+  - id: enemy_death
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: ef55823f6afc67042ab5480d2d86c51b, type: 3}
+    - {fileID: 8300000, guid: 2d6a36bced1197e4398ff952696a3373, type: 3}
+    volume: 0.45
+    pitchJitter: 0.12
+    cooldown: 0.08
+    placeholder: 1
+  - id: enemy_attack
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 1742b4d1f6169c74382cb26602c0ca03, type: 3}
+    volume: 0.4
+    pitchJitter: 0.1
+    cooldown: 0.1
+    placeholder: 1
+  - id: hound_bite
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: fe5b01565ceddab4e87112d681676021, type: 3}
+    volume: 0.45
+    pitchJitter: 0.1
+    cooldown: 0.1
+    placeholder: 1
+  - id: slime_death
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 5c474bf8f2f81064c87b1d78024ef406, type: 3}
+    volume: 0.5
+    pitchJitter: 0.1
+    cooldown: 0.1
+    placeholder: 1
+  - id: warlock_cast
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: cffe119c100c5f54e9516021ab00a376, type: 3}
+    volume: 0.5
+    pitchJitter: 0.05
+    cooldown: 0.3
+    placeholder: 1
+  - id: commander_swing
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: d2d01b056f1d5dc4db0e4fe648552074, type: 3}
+    - {fileID: 8300000, guid: 43ddb87bf63f50a4b9f620a1a4ea2055, type: 3}
+    volume: 0.55
+    pitchJitter: 0.06
+    cooldown: 0.1
+    placeholder: 1
+  - id: commander_attack
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 638d5a22dfe58c8479aeeeb3fe5b984f, type: 3}
+    - {fileID: 8300000, guid: f7d297a13d15c8840940720b9879b6b8, type: 3}
+    volume: 0.7
+    pitchJitter: 0.06
+    cooldown: 0.1
+    placeholder: 1
+  - id: commander_hit
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 5179b5ac0ee098e4ab329fa04b1469b5, type: 3}
+    volume: 0.6
+    pitchJitter: 0.06
+    cooldown: 0.3
+    placeholder: 1
+  - id: commander_ultimate
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 7ead90941dc0fe84397cf507c61a4d74, type: 3}
+    volume: 0.95
+    pitchJitter: 0
+    cooldown: 1
+    placeholder: 1
+  - id: commander_death
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 74b7b27441951bf419fb6b9389fd15e0, type: 3}
+    volume: 0.9
+    pitchJitter: 0
+    cooldown: 1
+    placeholder: 1
+  - id: boss_roar
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 135cde84f24051c4196f897ca15ffc0f, type: 3}
+    volume: 0.95
+    pitchJitter: 0
+    cooldown: 1
+    placeholder: 1
+  - id: boss_attack
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 1948b965bc79d5245909e0b63b8022bc, type: 3}
+    volume: 0.9
+    pitchJitter: 0.04
+    cooldown: 0.3
+    placeholder: 1
+  - id: boss_death
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 33e550712ddeb534794c7756bdc7ebcf, type: 3}
+    volume: 1
+    pitchJitter: 0
+    cooldown: 1
+    placeholder: 1
+  - id: boss_summon
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 6463c3c4ed3d41f4ebfaaee0a5656807, type: 3}
+    volume: 0.7
+    pitchJitter: 0
+    cooldown: 0.5
+    placeholder: 1
+  - id: wave_start
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 949e90c797f4bbd4483ab622c940c487, type: 3}
+    volume: 0.75
+    pitchJitter: 0
+    cooldown: 1
+    placeholder: 1
+  - id: wave_complete
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: d6f4b065d22d22c4180b290653272c9b, type: 3}
+    volume: 0.7
+    pitchJitter: 0
+    cooldown: 1
+    placeholder: 1
+  - id: victory
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 75c44bf5b1f03d847810bb67a3821703, type: 3}
+    volume: 0.85
+    pitchJitter: 0
+    cooldown: 1
+    placeholder: 1
+  - id: defeat
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 12dd2cced0b7ff34387a66e67e530509, type: 3}
+    volume: 0.85
+    pitchJitter: 0
+    cooldown: 1
+    placeholder: 1
+  - id: fortress_hit
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: 85ff0b95d459a8345a9b9fae013fcc14, type: 3}
+    volume: 0.8
+    pitchJitter: 0.05
+    cooldown: 0.15
+    placeholder: 1
+  - id: hound_growl
+    category: 0
+    clips:
+    - {fileID: 8300000, guid: cc462dd1705a3e5408682472ea81be57, type: 3}
+    - {fileID: 8300000, guid: a59f00b319617654b9fed5ef5db07a74, type: 3}
+    volume: 0.5
+    pitchJitter: 0.06
+    cooldown: 1.5
+    placeholder: 0
+  - id: music_menu
+    category: 3
+    clips:
+    - {fileID: 8300000, guid: 2241a7bea1e2fde49be7a7c6088ded18, type: 3}
+    volume: 0.55
+    pitchJitter: 0
+    cooldown: 0
+    placeholder: 1
+  - id: music_map1
+    category: 3
+    clips:
+    - {fileID: 8300000, guid: cf45eab6aa299ff43b517c22c40b08b4, type: 3}
+    volume: 0.5
+    pitchJitter: 0
+    cooldown: 0
+    placeholder: 1
+  - id: music_map2
+    category: 3
+    clips:
+    - {fileID: 8300000, guid: 4a051e5778f428847b87a0d6e58e22c5, type: 3}
+    volume: 0.5
+    pitchJitter: 0
+    cooldown: 0
+    placeholder: 1
+  - id: music_boss
+    category: 3
+    clips:
+    - {fileID: 8300000, guid: 1d00abddbee8865479e5906bafe1ba09, type: 3}
+    volume: 0.6
+    pitchJitter: 0
+    cooldown: 0
+    placeholder: 1
+  - id: music_victory
+    category: 3
+    clips:
+    - {fileID: 8300000, guid: 41dfbe1765a46f3468debb4370222f4c, type: 3}
+    volume: 0.6
+    pitchJitter: 0
+    cooldown: 0
+    placeholder: 1
+  - id: music_defeat
+    category: 3
+    clips:
+    - {fileID: 8300000, guid: a69686d4681c31040844eae20ed0708e, type: 3}
+    volume: 0.6
+    pitchJitter: 0
+    cooldown: 0
+    placeholder: 1
+  - id: ambient_map1
+    category: 2
+    clips:
+    - {fileID: 8300000, guid: e22c343aac156b240b00ede66bad52d8, type: 3}
+    volume: 0.45
+    pitchJitter: 0
+    cooldown: 0
+    placeholder: 1
+  - id: ambient_map2
+    category: 2
+    clips:
+    - {fileID: 8300000, guid: fab3712b5ab63ba458c412c7a4fd7632, type: 3}
+    volume: 0.45
+    pitchJitter: 0
+    cooldown: 0
+    placeholder: 1

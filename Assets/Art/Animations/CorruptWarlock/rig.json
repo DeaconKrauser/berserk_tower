@@ -1,0 +1,117 @@
+{
+ "name": "CorruptWarlock",
+ "ppu": 32,
+ "height": 64,
+ "width": 33,
+ "feet": [
+  13.1,
+  64.0
+ ],
+ "parts": [
+  {
+   "name": "hips",
+   "parent": null,
+   "z": -10,
+   "pivot": [
+    13.1,
+    39.68
+   ]
+  },
+  {
+   "name": "hem",
+   "parent": "hips",
+   "z": 1,
+   "pivot": [
+    12.44,
+    38.4
+   ],
+   "sprite": "parts/hem.png",
+   "rect": [
+    0,
+    36,
+    26,
+    28
+   ]
+  },
+  {
+   "name": "armB",
+   "parent": "torso",
+   "z": 2,
+   "pivot": [
+    19.64,
+    21.76
+   ],
+   "sprite": "parts/armB.png",
+   "rect": [
+    17,
+    19,
+    9,
+    30
+   ]
+  },
+  {
+   "name": "torso",
+   "parent": "hips",
+   "z": 3,
+   "pivot": [
+    13.1,
+    39.68
+   ],
+   "sprite": "parts/torso.png",
+   "rect": [
+    3,
+    15,
+    22,
+    27
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "torso",
+   "z": 4,
+   "pivot": [
+    13.75,
+    19.2
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    3,
+    0,
+    22,
+    22
+   ]
+  },
+  {
+   "name": "armF",
+   "parent": "torso",
+   "z": 5,
+   "pivot": [
+    4.91,
+    21.12
+   ],
+   "sprite": "parts/armF.png",
+   "rect": [
+    0,
+    16,
+    11,
+    34
+   ]
+  },
+  {
+   "name": "weapon",
+   "parent": "armB",
+   "z": 6,
+   "pivot": [
+    27.5,
+    38.4
+   ],
+   "sprite": "parts/weapon.png",
+   "rect": [
+    23,
+    4,
+    10,
+    60
+   ]
+  }
+ ]
+}

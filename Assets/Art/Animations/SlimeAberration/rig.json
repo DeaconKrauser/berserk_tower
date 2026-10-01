@@ -1,0 +1,60 @@
+{
+ "name": "SlimeAberration",
+ "ppu": 32,
+ "height": 44,
+ "width": 51,
+ "feet": [
+  25.38,
+  42.68
+ ],
+ "parts": [
+  {
+   "name": "drip",
+   "parent": null,
+   "z": 0,
+   "pivot": [
+    25.38,
+    41.8
+   ],
+   "sprite": "parts/drip.png",
+   "rect": [
+    0,
+    37,
+    51,
+    7
+   ]
+  },
+  {
+   "name": "body",
+   "parent": null,
+   "z": 1,
+   "pivot": [
+    25.38,
+    39.6
+   ],
+   "sprite": "parts/body.png",
+   "rect": [
+    3,
+    2,
+    45,
+    37
+   ]
+  },
+  {
+   "name": "eyes",
+   "parent": "body",
+   "z": 2,
+   "pivot": [
+    25.38,
+    19.8
+   ],
+   "sprite": "parts/eyes.png",
+   "rect": [
+    15,
+    8,
+    21,
+    23
+   ]
+  }
+ ]
+}

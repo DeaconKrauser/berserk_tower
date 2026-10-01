@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c3125a84845b640876f8a39a9cdda1, type: 3}
+  m_Name: CursedKnight
+  m_EditorClassIdentifier: Bastiao.Runtime::EnemyData
+  id: CursedKnight
+  displayName: "Cavaleiro Amaldi\xE7oado"
+  description: "Chefe. Ergue os mortos, atordoa torres com golpes s\xEDsmicos e enfurece ferido."
+  rig: {fileID: 3449134800229907872, guid: ce4b7f7ee3697d94b9530693c71fd6c1, type: 3}
+  rigScale: 1
+  icon: {fileID: 21300000, guid: 48ff9a21fb163284ebd9e12624ddf1e6, type: 3}
+  maxHp: 4900
+  armor: 12
+  physicalResistance: 0.3
+  fireResistance: -0.15
+  magicResistance: 0
+  bleedResistance: 0.5
+  regenPerSecond: 0
+  tags: 50
+  movementSpeed: 0.5
+  bodyRadius: 0.9
+  bodyLength: 0.9
+  damageToFortress: 10
+  meleeDamage: 110
+  attackInterval: 2
+  goldReward: 250
+  castInterval: 0
+  castRadius: 0
+  castShield: 0
+  castHeal: 0
+  splitInto: {fileID: 0}
+  splitCount: 0
+  feedHeal: 0
+  feedRadius: 0
+  boss: {fileID: 11400000, guid: 6f5f44e8161f2ba498a7b53c02f24186, type: 2}
+  lightColor: {r: 0.6, g: 0.25, b: 0.9, a: 1}
+  lightRadius: 4.5
+  spawnSfx: 
+  attackSfx: boss_attack
+  hitSfx: 
+  deathSfx: 

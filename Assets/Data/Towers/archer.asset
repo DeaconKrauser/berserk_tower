@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca52ba4ba2f30664193a9110f907b57b, type: 3}
+  m_Name: archer
+  m_EditorClassIdentifier: Bastiao.Runtime::TowerData
+  id: archer
+  displayName: Torre de Arqueiros
+  role: "Barata e r\xE1pida \xB7 alvo \xFAnico \xB7 sofre contra armadura"
+  goodAgainst: "Bom contra r\xE1pidos e fr\xE1geis"
+  cost: 70
+  icon: {fileID: 21300000, guid: 64a53f635f9ddae45a5dfffddaf8cec6, type: 3}
+  sprite: {fileID: 21300000, guid: 64a53f635f9ddae45a5dfffddaf8cec6, type: 3}
+  kind: 0
+  placement: 0
+  footprintRadius: 0.55
+  muzzleHeight: 1.55
+  targeting: 0
+  projectile: {fileID: 11400000, guid: 75e405b3811986643bc60c7195dd80a5, type: 2}
+  lightColor: {r: 0, g: 0, b: 0, a: 0}
+  lightRadius: 0
+  fireSfx: archer_shot
+  impactSfx: arrow_impact
+  stats:
+    damage: 11
+    damageType: 0
+    attackInterval: 0.6
+    range: 3.6
+    projectileSpeed: 0
+    armorPenetration: 0
+    splashRadius: 0
+    targets: 1
+    pierce: 0
+    critChance: 0
+    critMultiplier: 0
+    bossDamageMultiplier: 0
+    stunChance: 0
+    stunDuration: 0
+    burnDps: 0
+    burnDuration: 0
+    bleedDps: 0
+    bleedDuration: 0
+    slowAmount: 0
+    slowDuration: 0
+    vulnerability: 0
+    curseDuration: 0
+    armorShred: 0
+    curseSpreads: 0
+    groundFireDps: 0
+    groundFireDuration: 0
+    groundFireRadius: 0
+    chainCount: 0
+    chainRange: 0
+    chainFalloff: 0
+    executeThreshold: 0
+    auraRadius: 0
+    auraDamageBonus: 0
+    auraAttackSpeedBonus: 0
+    auraRangeBonus: 0
+    auraArmorShred: 0
+    commanderHealPerSecond: 0
+    trapDurability: 0
+  upgrades:
+  - {fileID: 11400000, guid: a0e4bb5d6be5e7e4eb7fc0ecefa65711, type: 2}
+  - {fileID: 11400000, guid: b86f66aa3e69d924c93358cb14c01614, type: 2}
+  - {fileID: 11400000, guid: 3b2d4a4293af9454e8d5747f51d6d777, type: 2}

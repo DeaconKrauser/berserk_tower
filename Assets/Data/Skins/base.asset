@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4fd0cb5e972a349b26bea04f0570de, type: 3}
+  m_Name: base
+  m_EditorClassIdentifier: Bastiao.Runtime::CommanderSkinData
+  id: base
+  displayName: Ulric
+  description: "Capit\xE3o da Companhia do Corvo: o mercen\xE1rio que se recusou a abandonar o \xFAltimo basti\xE3o. Placas enegrecidas, manto rubro, espada maior que a f\xE9."
+  rig: {fileID: 2174516688707881932, guid: 82676d83ee9968e459572e630e347833, type: 3}
+  rigBack: {fileID: 1338138848814173959, guid: 7034eb03f897e6d439ba7ba194d61203, type: 3}
+  splash: {fileID: 21300000, guid: 7f03e97b94453d44c8ebddc27883fbc6, type: 3}
+  portrait: {fileID: 21300000, guid: 683bbec64be1b2d46875dc51bca40b67, type: 3}
+  previewIdle:
+  - {fileID: 21300000, guid: e9fc41836584fb64b92b84ade1636042, type: 3}
+  - {fileID: 21300000, guid: 5b68377f659330047b4f182487561c4e, type: 3}
+  - {fileID: 21300000, guid: 94ac3cac52c92414dbc8d5b3eb2d1aa2, type: 3}
+  - {fileID: 21300000, guid: 0513b56677d17984c94f9b0af1a783ff, type: 3}
+  - {fileID: 21300000, guid: d9aa7bc75815a94429a4d83251b7f7e3, type: 3}
+  - {fileID: 21300000, guid: 3cc244e081ba0784c9bdfb8662352038, type: 3}
+  previewAttack:
+  - {fileID: 21300000, guid: b4688ae97fbdd2b4da8b247ccddc8880, type: 3}
+  - {fileID: 21300000, guid: 593dd2d986aaca140ab48a1a6f0ea84a, type: 3}
+  - {fileID: 21300000, guid: 44fa4dfd60fe07d488f00bca98eefe00, type: 3}
+  - {fileID: 21300000, guid: 9a663d57673dbe145a3d0fe5a0faecab, type: 3}
+  - {fileID: 21300000, guid: 0672a8b3519c04d4cba6fdebfb887e06, type: 3}
+  - {fileID: 21300000, guid: 9b0ecc1fbcf8be043859a222e969d9e1, type: 3}
+  - {fileID: 21300000, guid: 876002da7b08cf7409125fe58757f6cd, type: 3}
+  - {fileID: 21300000, guid: 1661381c7285a3e4cbda32e91bc031ba, type: 3}
+  unlockCost: 0
+  unlockedByDefault: 1
+  accent: {r: 0.95, g: 0.64, b: 0.23, a: 1}

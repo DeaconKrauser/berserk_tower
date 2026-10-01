@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8e41b137690b3478f8d9b0128f4661, type: 3}
+  m_Name: Map2_PantanoDasCinzas
+  m_EditorClassIdentifier: Bastiao.Runtime::MapData
+  id: map2
+  displayName: "P\xE2ntano das Cinzas"
+  description: "Lama, \xE1gua negra e madeira podre. Carni\xE7ais famintos, bruxos que protegem a horda e aberra\xE7\xF5es de lodo que se dividem."
+  preview: {fileID: 0}
+  routes:
+  - {fileID: 11400000, guid: 1f2749af66af37c49bd80968a7d0751f, type: 2}
+  - {fileID: 11400000, guid: c56427e922aaa2c4d98f730472f439b9, type: 2}
+  - {fileID: 11400000, guid: 7ff1932140acfaa44a2ac54fe186a73c, type: 2}
+  waves:
+  - {fileID: 11400000, guid: 6282374e0a5a8a146b24ebf2ec9dc470, type: 2}
+  - {fileID: 11400000, guid: cea4f36b48f778740a0d726539566769, type: 2}
+  - {fileID: 11400000, guid: c07fb6e6949310949ab4c147315f2d61, type: 2}
+  - {fileID: 11400000, guid: 58fbe48bc426da84fbfc45448180efc1, type: 2}
+  - {fileID: 11400000, guid: ef6dab274e4cad54d8bfcdff862cc092, type: 2}
+  - {fileID: 11400000, guid: 20e9e4751201be04aaba9472739abd19, type: 2}
+  - {fileID: 11400000, guid: 9ae8b08313a8d494ba282c3b578cad7c, type: 2}
+  - {fileID: 11400000, guid: 9f8e39c4ba99b9743a6c08776999b608, type: 2}
+  - {fileID: 11400000, guid: 78e8b978724bb4d4ab6e2c7df5604972, type: 2}
+  - {fileID: 11400000, guid: 8af0bc0c055ec4c4b95bd761c7331603, type: 2}
+  roster:
+  - {fileID: 11400000, guid: 748b654bd2bb572498678faddbce52c9, type: 2}
+  - {fileID: 11400000, guid: c245ce47d4266fa4daaae4fce5ea74f0, type: 2}
+  - {fileID: 11400000, guid: 362328d760e20c442af64bc742976f56, type: 2}
+  - {fileID: 11400000, guid: cb67e2552ea621742899ab522d57d539, type: 2}
+  - {fileID: 11400000, guid: 3d81011bd17324a46b9ae29488b0896d, type: 2}
+  startingGold: 340
+  fortressHp: 20
+  waveClearBonus: 22
+  waveClearBonusPerWave: 5
+  groundTiles:
+  - {fileID: 21300000, guid: ffc5697a948811e4992c72f2b1c23763, type: 3}
+  - {fileID: 21300000, guid: 6f2abb2e52341414497bffc005b81a56, type: 3}
+  - {fileID: 21300000, guid: 6d8919b421f89e74a9ba92178ce0c4d4, type: 3}
+  - {fileID: 21300000, guid: 838653377d76e1347a74cfd38f0b1fb4, type: 3}
+  groundAccentTiles:
+  - {fileID: 21300000, guid: a9c2ee16251f3a349a30f489b5d2751c, type: 3}
+  - {fileID: 21300000, guid: e67f212961829394eb454cc14e049975, type: 3}
+  roadTiles:
+  - {fileID: 21300000, guid: a9c2ee16251f3a349a30f489b5d2751c, type: 3}
+  - {fileID: 21300000, guid: e67f212961829394eb454cc14e049975, type: 3}
+  - {fileID: 21300000, guid: fb941508d9aad44408820524987b6847, type: 3}
+  - {fileID: 21300000, guid: ae327215ef3240041b6f3cf7a84d6bc5, type: 3}
+  roadAccentTiles: []
+  waterTiles:
+  - {fileID: 21300000, guid: 2744c27667572c2498be531bdc804d66, type: 3}
+  - {fileID: 21300000, guid: 622df9de8a4ebdb4db7aadc779f05893, type: 3}
+  - {fileID: 21300000, guid: 70a00eb48bb1dd34992135518f7d6907, type: 3}
+  - {fileID: 21300000, guid: 31e3be5bfcd0a5f4eaa7f3e7f59f571b, type: 3}
+  bridgeTiles:
+  - {fileID: 21300000, guid: 7b20965dc1652734e8260e672385df6a, type: 3}
+  - {fileID: 21300000, guid: aad21ea7b2f1a854194f39df7c4663bb, type: 3}
+  - {fileID: 21300000, guid: 2fbe24a1f9d0c474b9cbf79f4756a305, type: 3}
+  - {fileID: 21300000, guid: 3fed8a89bf9ce14408f0efe7d3dd373d, type: 3}
+  roadRim: {r: 0.08, g: 0.1, b: 0.06, a: 1}
+  props:
+  - name: reeds_0
+    sprite: {fileID: 21300000, guid: 93c83a3374649664c9df16b6e1916985, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 1.4
+  - name: reeds_1
+    sprite: {fileID: 21300000, guid: b9067f0bc1ae2e045bcb81a7cb1b7f82, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 1.4
+  - name: bonepile_0
+    sprite: {fileID: 21300000, guid: 72f42ca3b8c04904f83f165ae078826c, type: 3}
+    decal: 1
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.8
+  - name: bonepile_1
+    sprite: {fileID: 21300000, guid: 6e6378af61046d7498185b9e2214a05b, type: 3}
+    decal: 1
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.8
+  - name: slime_pool
+    sprite: {fileID: 21300000, guid: f0bb805319214a94daea15a2a8f12986, type: 3}
+    decal: 1
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.5
+  - name: mossy_rock
+    sprite: {fileID: 21300000, guid: f47cfee18ad6db349aaef9db176c54cc, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.5
+  - name: mushrooms
+    sprite: {fileID: 21300000, guid: 5eb46da70ac382a48ac2b177f27aa2ef, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 0.5, g: 1, b: 0.4, a: 1}
+    scatterWeight: 1
+  - name: stump
+    sprite: {fileID: 21300000, guid: afb35cefb7e56e646a46bacbeecd13a0, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.8
+  - name: totem
+    sprite: {fileID: 21300000, guid: 0920552916f612247bc6dc6905d955db, type: 3}
+    decal: 0
+    torch: 1
+    lightColor: {r: 1, g: 0.25, b: 0.2, a: 1}
+    scatterWeight: 0.25
+  - name: spawn_portal
+    sprite: {fileID: 21300000, guid: f0bb805319214a94daea15a2a8f12986, type: 3}
+    decal: 1
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0
+  - name: dead_tree
+    sprite: {fileID: 21300000, guid: 1dc1ad3e0b12e5a4a99b5b995305cae0, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.6
+  fortressKeep: {fileID: 21300000, guid: 922938c612646854ea0f8e427f6d9c53, type: 3}
+  fortressTower: {fileID: 21300000, guid: 46529e88ef927614c9d2e14c5a4997bf, type: 3}
+  globalLightColor: {r: 0.72, g: 0.88, b: 0.78, a: 1}
+  globalLightIntensity: 0.74
+  backgroundColor: {r: 0.03137255, g: 0.047058824, b: 0.039215688, a: 1}
+  musicId: music_map2
+  ambientId: ambient_map2

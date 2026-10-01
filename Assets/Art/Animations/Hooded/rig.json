@@ -1,0 +1,101 @@
+{
+ "name": "Hooded",
+ "ppu": 32,
+ "height": 60,
+ "width": 34,
+ "feet": [
+  16.98,
+  60.0
+ ],
+ "parts": [
+  {
+   "name": "hips",
+   "parent": null,
+   "z": -10,
+   "pivot": [
+    16.98,
+    37.2
+   ]
+  },
+  {
+   "name": "hem",
+   "parent": "hips",
+   "z": 1,
+   "pivot": [
+    16.98,
+    36.0
+   ],
+   "sprite": "parts/hem.png",
+   "rect": [
+    0,
+    34,
+    34,
+    26
+   ]
+  },
+  {
+   "name": "armB",
+   "parent": "torso",
+   "z": 2,
+   "pivot": [
+    25.81,
+    20.4
+   ],
+   "sprite": "parts/armB.png",
+   "rect": [
+    23,
+    19,
+    10,
+    28
+   ]
+  },
+  {
+   "name": "torso",
+   "parent": "hips",
+   "z": 3,
+   "pivot": [
+    17.66,
+    37.2
+   ],
+   "sprite": "parts/torso.png",
+   "rect": [
+    7,
+    14,
+    23,
+    26
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "torso",
+   "z": 4,
+   "pivot": [
+    18.68,
+    19.2
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    7,
+    0,
+    23,
+    23
+   ]
+  },
+  {
+   "name": "armF",
+   "parent": "torso",
+   "z": 5,
+   "pivot": [
+    9.51,
+    19.8
+   ],
+   "sprite": "parts/armF.png",
+   "rect": [
+    3,
+    16,
+    12,
+    31
+   ]
+  }
+ ]
+}

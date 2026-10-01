@@ -1,0 +1,541 @@
+[
+ {
+  "id": "ui_click",
+  "category": "UI",
+  "files": [
+   "Assets/Audio/SFX/ui_click_0.wav"
+  ],
+  "volume": 0.7,
+  "pitch": 0.05,
+  "cooldown": 0.03,
+  "placeholder": true
+ },
+ {
+  "id": "ui_hover",
+  "category": "UI",
+  "files": [
+   "Assets/Audio/SFX/ui_hover_0.wav"
+  ],
+  "volume": 0.35,
+  "pitch": 0.05,
+  "cooldown": 0.05,
+  "placeholder": true
+ },
+ {
+  "id": "ui_select",
+  "category": "UI",
+  "files": [
+   "Assets/Audio/SFX/ui_select_0.wav"
+  ],
+  "volume": 0.6,
+  "pitch": 0.03,
+  "cooldown": 0.05,
+  "placeholder": true
+ },
+ {
+  "id": "ui_error",
+  "category": "UI",
+  "files": [
+   "Assets/Audio/SFX/ui_error_0.wav"
+  ],
+  "volume": 0.55,
+  "pitch": 0.0,
+  "cooldown": 0.2,
+  "placeholder": true
+ },
+ {
+  "id": "tower_select",
+  "category": "UI",
+  "files": [
+   "Assets/Audio/SFX/tower_select_0.wav"
+  ],
+  "volume": 0.6,
+  "pitch": 0.05,
+  "cooldown": 0.05,
+  "placeholder": true
+ },
+ {
+  "id": "build",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/build_0.wav"
+  ],
+  "volume": 0.8,
+  "pitch": 0.04,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "upgrade",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/upgrade_0.wav"
+  ],
+  "volume": 0.75,
+  "pitch": 0.0,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "sell",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/sell_0.wav"
+  ],
+  "volume": 0.7,
+  "pitch": 0.05,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "archer_shot",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/archer_shot_0.wav",
+   "Assets/Audio/SFX/archer_shot_1.wav",
+   "Assets/Audio/SFX/archer_shot_2.wav"
+  ],
+  "volume": 0.45,
+  "pitch": 0.08,
+  "cooldown": 0.05,
+  "placeholder": true
+ },
+ {
+  "id": "arrow_impact",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/arrow_impact_0.wav",
+   "Assets/Audio/SFX/arrow_impact_1.wav"
+  ],
+  "volume": 0.35,
+  "pitch": 0.1,
+  "cooldown": 0.05,
+  "placeholder": true
+ },
+ {
+  "id": "ballista_shot",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/ballista_shot_0.wav"
+  ],
+  "volume": 0.65,
+  "pitch": 0.05,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "ballista_impact",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/ballista_impact_0.wav"
+  ],
+  "volume": 0.7,
+  "pitch": 0.06,
+  "cooldown": 0.08,
+  "placeholder": true
+ },
+ {
+  "id": "pyre_cast",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/pyre_cast_0.wav"
+  ],
+  "volume": 0.5,
+  "pitch": 0.08,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "fire_impact",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/fire_impact_0.wav",
+   "Assets/Audio/SFX/fire_impact_1.wav"
+  ],
+  "volume": 0.6,
+  "pitch": 0.08,
+  "cooldown": 0.08,
+  "placeholder": true
+ },
+ {
+  "id": "chapel_aura",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/chapel_aura_0.wav"
+  ],
+  "volume": 0.35,
+  "pitch": 0.0,
+  "cooldown": 1.5,
+  "placeholder": true
+ },
+ {
+  "id": "crow_curse",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/crow_curse_0.wav",
+   "Assets/Audio/SFX/crow_curse_1.wav"
+  ],
+  "volume": 0.45,
+  "pitch": 0.1,
+  "cooldown": 0.15,
+  "placeholder": true
+ },
+ {
+  "id": "crow_impact",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/crow_impact_0.wav"
+  ],
+  "volume": 0.35,
+  "pitch": 0.1,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "obelisk_cast",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/obelisk_cast_0.wav"
+  ],
+  "volume": 0.55,
+  "pitch": 0.06,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "trap_trigger",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/trap_trigger_0.wav"
+  ],
+  "volume": 0.5,
+  "pitch": 0.1,
+  "cooldown": 0.08,
+  "placeholder": true
+ },
+ {
+  "id": "enemy_hit",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/enemy_hit_0.wav",
+   "Assets/Audio/SFX/enemy_hit_1.wav",
+   "Assets/Audio/SFX/enemy_hit_2.wav"
+  ],
+  "volume": 0.3,
+  "pitch": 0.15,
+  "cooldown": 0.04,
+  "placeholder": true
+ },
+ {
+  "id": "enemy_death",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/enemy_death_0.wav",
+   "Assets/Audio/SFX/enemy_death_1.wav"
+  ],
+  "volume": 0.45,
+  "pitch": 0.12,
+  "cooldown": 0.08,
+  "placeholder": true
+ },
+ {
+  "id": "enemy_attack",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/enemy_attack_0.wav"
+  ],
+  "volume": 0.4,
+  "pitch": 0.1,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "hound_bite",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/hound_bite_0.wav"
+  ],
+  "volume": 0.45,
+  "pitch": 0.1,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "slime_death",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/slime_death_0.wav"
+  ],
+  "volume": 0.5,
+  "pitch": 0.1,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "warlock_cast",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/warlock_cast_0.wav"
+  ],
+  "volume": 0.5,
+  "pitch": 0.05,
+  "cooldown": 0.3,
+  "placeholder": true
+ },
+ {
+  "id": "commander_swing",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/commander_swing_0.wav",
+   "Assets/Audio/SFX/commander_swing_1.wav"
+  ],
+  "volume": 0.55,
+  "pitch": 0.06,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "commander_attack",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/commander_attack_0.wav",
+   "Assets/Audio/SFX/commander_attack_1.wav"
+  ],
+  "volume": 0.7,
+  "pitch": 0.06,
+  "cooldown": 0.1,
+  "placeholder": true
+ },
+ {
+  "id": "commander_hit",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/commander_hit_0.wav"
+  ],
+  "volume": 0.6,
+  "pitch": 0.06,
+  "cooldown": 0.3,
+  "placeholder": true
+ },
+ {
+  "id": "commander_ultimate",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/commander_ultimate_0.wav"
+  ],
+  "volume": 0.95,
+  "pitch": 0.0,
+  "cooldown": 1.0,
+  "placeholder": true
+ },
+ {
+  "id": "commander_death",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/commander_death_0.wav"
+  ],
+  "volume": 0.9,
+  "pitch": 0.0,
+  "cooldown": 1.0,
+  "placeholder": true
+ },
+ {
+  "id": "boss_roar",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/boss_roar_0.wav"
+  ],
+  "volume": 0.95,
+  "pitch": 0.0,
+  "cooldown": 1.0,
+  "placeholder": true
+ },
+ {
+  "id": "boss_attack",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/boss_attack_0.wav"
+  ],
+  "volume": 0.9,
+  "pitch": 0.04,
+  "cooldown": 0.3,
+  "placeholder": true
+ },
+ {
+  "id": "boss_death",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/boss_death_0.wav"
+  ],
+  "volume": 1.0,
+  "pitch": 0.0,
+  "cooldown": 1.0,
+  "placeholder": true
+ },
+ {
+  "id": "boss_summon",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/boss_summon_0.wav"
+  ],
+  "volume": 0.7,
+  "pitch": 0.0,
+  "cooldown": 0.5,
+  "placeholder": true
+ },
+ {
+  "id": "wave_start",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/wave_start_0.wav"
+  ],
+  "volume": 0.75,
+  "pitch": 0.0,
+  "cooldown": 1.0,
+  "placeholder": true
+ },
+ {
+  "id": "wave_complete",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/wave_complete_0.wav"
+  ],
+  "volume": 0.7,
+  "pitch": 0.0,
+  "cooldown": 1.0,
+  "placeholder": true
+ },
+ {
+  "id": "victory",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/victory_0.wav"
+  ],
+  "volume": 0.85,
+  "pitch": 0.0,
+  "cooldown": 1.0,
+  "placeholder": true
+ },
+ {
+  "id": "defeat",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/defeat_0.wav"
+  ],
+  "volume": 0.85,
+  "pitch": 0.0,
+  "cooldown": 1.0,
+  "placeholder": true
+ },
+ {
+  "id": "fortress_hit",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/fortress_hit_0.wav"
+  ],
+  "volume": 0.8,
+  "pitch": 0.05,
+  "cooldown": 0.15,
+  "placeholder": true
+ },
+ {
+  "id": "hound_growl",
+  "category": "Sfx",
+  "files": [
+   "Assets/Audio/SFX/hound_growl_0.ogg",
+   "Assets/Audio/SFX/hound_growl_1.ogg"
+  ],
+  "volume": 0.5,
+  "pitch": 0.06,
+  "cooldown": 1.5,
+  "placeholder": false
+ },
+ {
+  "id": "music_menu",
+  "category": "Music",
+  "files": [
+   "Assets/Audio/Music/placeholder_music_menu.ogg"
+  ],
+  "volume": 0.55,
+  "pitch": 0.0,
+  "cooldown": 0.0,
+  "placeholder": true
+ },
+ {
+  "id": "music_map1",
+  "category": "Music",
+  "files": [
+   "Assets/Audio/Music/placeholder_music_map1.ogg"
+  ],
+  "volume": 0.5,
+  "pitch": 0.0,
+  "cooldown": 0.0,
+  "placeholder": true
+ },
+ {
+  "id": "music_map2",
+  "category": "Music",
+  "files": [
+   "Assets/Audio/Music/placeholder_music_map2.ogg"
+  ],
+  "volume": 0.5,
+  "pitch": 0.0,
+  "cooldown": 0.0,
+  "placeholder": true
+ },
+ {
+  "id": "music_boss",
+  "category": "Music",
+  "files": [
+   "Assets/Audio/Music/placeholder_music_boss.ogg"
+  ],
+  "volume": 0.6,
+  "pitch": 0.0,
+  "cooldown": 0.0,
+  "placeholder": true
+ },
+ {
+  "id": "music_victory",
+  "category": "Music",
+  "files": [
+   "Assets/Audio/Music/placeholder_music_victory.ogg"
+  ],
+  "volume": 0.6,
+  "pitch": 0.0,
+  "cooldown": 0.0,
+  "placeholder": true
+ },
+ {
+  "id": "music_defeat",
+  "category": "Music",
+  "files": [
+   "Assets/Audio/Music/placeholder_music_defeat.ogg"
+  ],
+  "volume": 0.6,
+  "pitch": 0.0,
+  "cooldown": 0.0,
+  "placeholder": true
+ },
+ {
+  "id": "ambient_map1",
+  "category": "Ambient",
+  "files": [
+   "Assets/Audio/Ambient/placeholder_ambient_map1.ogg"
+  ],
+  "volume": 0.45,
+  "pitch": 0.0,
+  "cooldown": 0.0,
+  "placeholder": true
+ },
+ {
+  "id": "ambient_map2",
+  "category": "Ambient",
+  "files": [
+   "Assets/Audio/Ambient/placeholder_ambient_map2.ogg"
+  ],
+  "volume": 0.45,
+  "pitch": 0.0,
+  "cooldown": 0.0,
+  "placeholder": true
+ }
+]

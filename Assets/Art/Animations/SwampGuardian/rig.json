@@ -1,0 +1,165 @@
+{
+ "name": "SwampGuardian",
+ "ppu": 32,
+ "height": 150,
+ "width": 152,
+ "feet": [
+  75.75,
+  150.0
+ ],
+ "parts": [
+  {
+   "name": "hips",
+   "parent": null,
+   "z": -10,
+   "pivot": [
+    75.75,
+    94.5
+   ]
+  },
+  {
+   "name": "weapon_back",
+   "parent": "weapon",
+   "z": 0,
+   "pivot": [
+    46.96,
+    93.0
+   ],
+   "sprite": "parts/weapon_back.png",
+   "rect": [
+    55,
+    9,
+    80,
+    74
+   ]
+  },
+  {
+   "name": "legB",
+   "parent": "hips",
+   "z": 1,
+   "pivot": [
+    93.93,
+    96.0
+   ],
+   "sprite": "parts/legB.png",
+   "rect": [
+    83,
+    91,
+    35,
+    46
+   ]
+  },
+  {
+   "name": "legF",
+   "parent": "hips",
+   "z": 2,
+   "pivot": [
+    57.57,
+    96.0
+   ],
+   "sprite": "parts/legF.png",
+   "rect": [
+    45,
+    93,
+    27,
+    57
+   ]
+  },
+  {
+   "name": "skirt",
+   "parent": "hips",
+   "z": 3,
+   "pivot": [
+    75.75,
+    78.0
+   ],
+   "sprite": "parts/skirt.png",
+   "rect": [
+    55,
+    75,
+    45,
+    49
+   ]
+  },
+  {
+   "name": "torso",
+   "parent": "hips",
+   "z": 4,
+   "pivot": [
+    75.75,
+    79.5
+   ],
+   "sprite": "parts/torso.png",
+   "rect": [
+    41,
+    0,
+    79,
+    85
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "torso",
+   "z": 5,
+   "pivot": [
+    74.23,
+    37.5
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    57,
+    6,
+    35,
+    37
+   ]
+  },
+  {
+   "name": "armB",
+   "parent": "torso",
+   "z": 6,
+   "pivot": [
+    103.02,
+    48.0
+   ],
+   "sprite": "parts/armB.png",
+   "rect": [
+    93,
+    39,
+    59,
+    98
+   ]
+  },
+  {
+   "name": "armF",
+   "parent": "torso",
+   "z": 7,
+   "pivot": [
+    50.0,
+    42.0
+   ],
+   "sprite": "parts/armF.png",
+   "rect": [
+    39,
+    35,
+    27,
+    65
+   ]
+  },
+  {
+   "name": "weapon",
+   "parent": "armF",
+   "z": 8,
+   "pivot": [
+    46.96,
+    93.0
+   ],
+   "sprite": "parts/weapon.png",
+   "rect": [
+    0,
+    81,
+    65,
+    60
+   ]
+  }
+ ]
+}

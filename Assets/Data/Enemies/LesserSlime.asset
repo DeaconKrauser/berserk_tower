@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c3125a84845b640876f8a39a9cdda1, type: 3}
+  m_Name: LesserSlime
+  m_EditorClassIdentifier: Bastiao.Runtime::EnemyData
+  id: LesserSlime
+  displayName: Lodo Menor
+  description: "Peda\xE7o da aberra\xE7\xE3o."
+  rig: {fileID: 7782414584872909750, guid: 330be78210e957f4da15ada81783a9d7, type: 3}
+  rigScale: 0.6
+  icon: {fileID: 21300000, guid: 120019efb8626e4439a658c3b200f933, type: 3}
+  maxHp: 120
+  armor: 0
+  physicalResistance: 0.3
+  fireResistance: -0.35
+  magicResistance: 0
+  bleedResistance: 0.8
+  regenPerSecond: 0
+  tags: 4
+  movementSpeed: 1
+  bodyRadius: 0.3
+  bodyLength: 0.3
+  damageToFortress: 1
+  meleeDamage: 8
+  attackInterval: 1.2
+  goldReward: 2
+  castInterval: 0
+  castRadius: 0
+  castShield: 0
+  castHeal: 0
+  splitInto: {fileID: 0}
+  splitCount: 0
+  feedHeal: 0
+  feedRadius: 0
+  boss: {fileID: 0}
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightRadius: 0
+  spawnSfx: 
+  attackSfx: enemy_attack
+  hitSfx: enemy_hit
+  deathSfx: slime_death

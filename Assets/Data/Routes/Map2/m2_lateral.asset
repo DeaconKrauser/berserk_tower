@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39ba71de12f3b341bc3b7f2188e3135, type: 3}
+  m_Name: m2_lateral
+  m_EditorClassIdentifier: Bastiao.Runtime::RouteData
+  displayName: Entrada do Charco
+  layout: entrada lateral + curva longa
+  paths:
+  - points:
+    - {x: 2, y: 9.6}
+    - {x: 2, y: 5.6}
+    - {x: -2.5, y: 3}
+    - {x: -8, y: 4}
+    - {x: -11.2, y: 0.8}
+    - {x: -8, y: -2.8}
+    - {x: -2, y: -3.2}
+    - {x: 2, y: -0.6}
+    - {x: 6, y: -3.4}
+    - {x: 9.2, y: -2.8}
+    - {x: 10.6, y: 0.6}
+    - {x: 13.1, y: 0}
+  roadHalfWidth: 0.8
+  fortressPosition: {x: 13.1, y: 0}
+  commanderStart: {x: 6.2, y: 0.8}
+  zones:
+  - kind: 2
+    center: {x: -5.2, y: 0.4}
+    radius: 2.2
+    reason: "\xC1gua negra: n\xE3o h\xE1 ch\xE3o firme"
+  - kind: 2
+    center: {x: 7.4, y: 3.6}
+    radius: 1.6
+    reason: "\xC1gua negra: n\xE3o h\xE1 ch\xE3o firme"
+  - kind: 2
+    center: {x: -13.4, y: 4.6}
+    radius: 1.4
+    reason: "\xC1gua negra: n\xE3o h\xE1 ch\xE3o firme"
+  props:
+  - prop: totem
+    position: {x: -1, y: 1}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  - prop: totem
+    position: {x: 11.6, y: -2}
+    block: 1
+    blockRadius: 0
+    flip: 1
+  - prop: mossy_rock
+    position: {x: -11.6, y: -3.8}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  - prop: stump
+    position: {x: 4.2, y: 1.6}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  - prop: reeds_0
+    position: {x: -3, y: -1}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  - prop: reeds_1
+    position: {x: 5.6, y: 5}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  decorSeed: 79
+  decorDensity: 0.6

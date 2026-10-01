@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc707e554b9297149936124d97fece72, type: 3}
+  m_Name: SwampGuardian
+  m_EditorClassIdentifier: Bastiao.Runtime::BossData
+  title: "O Guardi\xE3o do P\xE2ntano"
+  introLine: "As \xE1guas negras se abrem."
+  introSeconds: 2.4
+  introCameraShake: 0.15
+  summon: {fileID: 11400000, guid: 748b654bd2bb572498678faddbce52c9, type: 2}
+  summonCount: 2
+  summonInterval: 16
+  enrageBelowHp: 0.35
+  enrageSpeedMultiplier: 1.4
+  enrageDamageMultiplier: 1.25
+  specialName: "Ra\xEDzes do P\xE2ntano"
+  specialInterval: 12
+  specialRadius: 2.8
+  specialDamage: 90
+  specialStunSeconds: 3
+  specialCameraShake: 0.18
+  fortressExecution: 0

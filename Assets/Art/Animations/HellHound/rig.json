@@ -1,0 +1,143 @@
+{
+ "name": "HellHound",
+ "ppu": 32,
+ "height": 34,
+ "width": 65,
+ "feet": [
+  32.5,
+  34.0
+ ],
+ "parts": [
+  {
+   "name": "legBF",
+   "parent": "body",
+   "z": 0,
+   "pivot": [
+    27.3,
+    19.38
+   ],
+   "sprite": "parts/legBF.png",
+   "rect": [
+    21,
+    18,
+    16,
+    16
+   ]
+  },
+  {
+   "name": "tail",
+   "parent": "body",
+   "z": 1,
+   "pivot": [
+    19.5,
+    12.92
+   ],
+   "sprite": "parts/tail.png",
+   "rect": [
+    0,
+    2,
+    19,
+    18
+   ]
+  },
+  {
+   "name": "legFF",
+   "parent": "body",
+   "z": 2,
+   "pivot": [
+    48.1,
+    18.02
+   ],
+   "sprite": "parts/legFF.png",
+   "rect": [
+    43,
+    17,
+    22,
+    17
+   ]
+  },
+  {
+   "name": "body",
+   "parent": null,
+   "z": 3,
+   "pivot": [
+    32.5,
+    15.3
+   ],
+   "sprite": "parts/body.png",
+   "rect": [
+    15,
+    0,
+    36,
+    24
+   ]
+  },
+  {
+   "name": "legBN",
+   "parent": "body",
+   "z": 4,
+   "pivot": [
+    18.2,
+    18.7
+   ],
+   "sprite": "parts/legBN.png",
+   "rect": [
+    5,
+    16,
+    20,
+    18
+   ]
+  },
+  {
+   "name": "legFN",
+   "parent": "body",
+   "z": 5,
+   "pivot": [
+    39.65,
+    19.04
+   ],
+   "sprite": "parts/legFN.png",
+   "rect": [
+    32,
+    17,
+    15,
+    17
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "body",
+   "z": 6,
+   "pivot": [
+    48.1,
+    11.9
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    44,
+    0,
+    21,
+    20
+   ]
+  }
+ ],
+ "flipbook": {
+  "name": "run",
+  "frames": [
+   "run/run_0.png",
+   "run/run_1.png",
+   "run/run_2.png",
+   "run/run_3.png",
+   "run/run_4.png",
+   "run/run_5.png"
+  ],
+  "size": [
+   69,
+   48
+  ],
+  "origin": [
+   36.5,
+   48
+  ]
+ }
+}

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4fd0cb5e972a349b26bea04f0570de, type: 3}
+  m_Name: eclipse_knight
+  m_EditorClassIdentifier: Bastiao.Runtime::CommanderSkinData
+  id: eclipse_knight
+  displayName: Cavaleiro do Eclipse
+  description: "A\xE7o negro tingido de violeta pela noite em que o sol morreu."
+  rig: {fileID: 9162509214709073178, guid: fa03f8e8342dd6c498eb2866a6dba929, type: 3}
+  rigBack: {fileID: 290051862581539919, guid: 740c05d11b4506342a718be84700c4f9, type: 3}
+  splash: {fileID: 21300000, guid: 3deea8cd6c0d96247a03a22da9c7cdcd, type: 3}
+  portrait: {fileID: 21300000, guid: 43c0ae4003584ac43874a0a9d398bd00, type: 3}
+  previewIdle:
+  - {fileID: 21300000, guid: 5008310651d0d9a4096fa10171931642, type: 3}
+  - {fileID: 21300000, guid: bd46a2c4c43caa946915bca620355f2a, type: 3}
+  - {fileID: 21300000, guid: b1ff29a316c07fc43b89b1ef2dea9e1c, type: 3}
+  - {fileID: 21300000, guid: feebf6a63e09b794a842f11a9a6bde57, type: 3}
+  - {fileID: 21300000, guid: d53b830a04f04dc498f09d86283b1b15, type: 3}
+  - {fileID: 21300000, guid: d7f9294becf53854f997b88d3f1dbaf8, type: 3}
+  previewAttack:
+  - {fileID: 21300000, guid: de158fd1a8c040f4cb309e1ccdfbf21f, type: 3}
+  - {fileID: 21300000, guid: 1654bb4631ca5054bb107286696adc6a, type: 3}
+  - {fileID: 21300000, guid: 9c8fb26cd58bdbe4ea31549d20cda7e4, type: 3}
+  - {fileID: 21300000, guid: 2ae7c98d31c6cfa41941d0f01bdb4520, type: 3}
+  - {fileID: 21300000, guid: 43aa75c8543d69a469ef1730a9a231ca, type: 3}
+  - {fileID: 21300000, guid: 11758ac4bdfb82b43a99cebd7877a9c5, type: 3}
+  - {fileID: 21300000, guid: 7a39ecb29a85ef040b66199c4b30a6c6, type: 3}
+  - {fileID: 21300000, guid: 0bc9428216a3c3742b0a74ab48001346, type: 3}
+  unlockCost: 250
+  unlockedByDefault: 0
+  accent: {r: 0.65, g: 0.35, b: 1, a: 1}

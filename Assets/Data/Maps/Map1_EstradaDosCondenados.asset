@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8e41b137690b3478f8d9b0128f4661, type: 3}
+  m_Name: Map1_EstradaDosCondenados
+  m_EditorClassIdentifier: Bastiao.Runtime::MapData
+  id: map1
+  displayName: Estrada dos Condenados
+  description: "Ru\xEDnas medievais, cemit\xE9rios e uma estrada de pedra que leva direto aos port\xF5es. Mortos de escudo, c\xE3es do inferno, encapuzados e cavaleiros negros."
+  preview: {fileID: 0}
+  routes:
+  - {fileID: 11400000, guid: a93bb289d4141e2448e48f31b94481f8, type: 2}
+  - {fileID: 11400000, guid: 688666b972eb4fc41b1de89b14b7f454, type: 2}
+  - {fileID: 11400000, guid: 2bea6e04108658f4f8309351db62f28c, type: 2}
+  waves:
+  - {fileID: 11400000, guid: a405700449321ea44a37702bcf358c5d, type: 2}
+  - {fileID: 11400000, guid: 1e1414153d4847446b9ee7c51438afa5, type: 2}
+  - {fileID: 11400000, guid: 6d36eac2589013247a3fb0708f288cdd, type: 2}
+  - {fileID: 11400000, guid: 28e7c536f6830774489987403978b74f, type: 2}
+  - {fileID: 11400000, guid: 627cbfed2efd53842b0c01fa7fc02275, type: 2}
+  - {fileID: 11400000, guid: 76c30ecb7bb8c534fae4ec6dd9deac7f, type: 2}
+  - {fileID: 11400000, guid: 165793930bd7189408ea7e2e4ed7356a, type: 2}
+  - {fileID: 11400000, guid: 69289da8a115f154f811fb43bf5b207a, type: 2}
+  - {fileID: 11400000, guid: c7c1228addbe3444e805475e4f5c46cc, type: 2}
+  - {fileID: 11400000, guid: 0c6b2d40c0df53849bd55fe6debbca45, type: 2}
+  roster:
+  - {fileID: 11400000, guid: df48779f3fa9957459f772b1e938d248, type: 2}
+  - {fileID: 11400000, guid: c245ce47d4266fa4daaae4fce5ea74f0, type: 2}
+  - {fileID: 11400000, guid: ac1656a29a0c3e24e851f6fde7bc1d7b, type: 2}
+  - {fileID: 11400000, guid: 3a636a18f4f13ed43b12e2f2a478c7f1, type: 2}
+  - {fileID: 11400000, guid: 2fee210aff8e67446bd0b8a3cdcb6232, type: 2}
+  startingGold: 285
+  fortressHp: 20
+  waveClearBonus: 20
+  waveClearBonusPerWave: 5
+  groundTiles:
+  - {fileID: 21300000, guid: 47d7129910224044d9ec09d6cdec20ed, type: 3}
+  - {fileID: 21300000, guid: 8f79626f1dc133b42a190025dcfc69f8, type: 3}
+  - {fileID: 21300000, guid: 8a1e69d2d0c6bc544849fed53d939238, type: 3}
+  - {fileID: 21300000, guid: e3ba176c2d1e7384b97bce69faf63ea0, type: 3}
+  - {fileID: 21300000, guid: 54e918aa64f248344885a1b47396dc88, type: 3}
+  - {fileID: 21300000, guid: 70dc5c62ff37bc64abbff07fce4b7250, type: 3}
+  - {fileID: 21300000, guid: 676f8d84d6a6d4a4a8761f24c38519c8, type: 3}
+  - {fileID: 21300000, guid: 98ce78058fa69984b810c638529db1f0, type: 3}
+  - {fileID: 21300000, guid: d194ff6b9728bcb4a91fa9bcd9f78ffb, type: 3}
+  groundAccentTiles: []
+  roadTiles:
+  - {fileID: 21300000, guid: 6159ae08a2184d64db91ea817da2cf03, type: 3}
+  - {fileID: 21300000, guid: 2233e06cc6454844cbb852de9b9b5f92, type: 3}
+  - {fileID: 21300000, guid: cecef83c46d296e4da7608a0170298d2, type: 3}
+  - {fileID: 21300000, guid: 0ffc34f341125704d8e5b946385351ef, type: 3}
+  - {fileID: 21300000, guid: ba124f281f107804aafc8258ef12ee32, type: 3}
+  - {fileID: 21300000, guid: 6eba489cc66308043aef9e583c446fdf, type: 3}
+  - {fileID: 21300000, guid: e1e88010ef43a4a418724845c95fd25a, type: 3}
+  - {fileID: 21300000, guid: 519d5e1ddc3f251469343e0fbe2d7212, type: 3}
+  - {fileID: 21300000, guid: 33b93630e368d024987739d87ec98848, type: 3}
+  roadAccentTiles:
+  - {fileID: 21300000, guid: 7395fdd25e66c6548918d493ea105f11, type: 3}
+  - {fileID: 21300000, guid: b6af3671583ec03469e2818040132945, type: 3}
+  waterTiles: []
+  bridgeTiles: []
+  roadRim: {r: 0.12, g: 0.1, b: 0.1, a: 1}
+  props:
+  - name: ruin_wall
+    sprite: {fileID: 21300000, guid: 8a90798705e50694f9457e8c6f41246d, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.6
+  - name: cross_grave
+    sprite: {fileID: 21300000, guid: 2887d2fec13d32143bfa32201107db86, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 1.2
+  - name: bones
+    sprite: {fileID: 21300000, guid: 3c76678e780a12d44a46e7e7a29ff90a, type: 3}
+    decal: 1
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 1.6
+  - name: torch_post
+    sprite: {fileID: 21300000, guid: c68f4646a0d14fe48a72a0e8ffb5dce3, type: 3}
+    decal: 0
+    torch: 1
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.3
+  - name: dead_tree
+    sprite: {fileID: 21300000, guid: 1dc1ad3e0b12e5a4a99b5b995305cae0, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 1
+  - name: rock
+    sprite: {fileID: 21300000, guid: 695ed368514a02341b87341c5f1a29ca, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 1
+  - name: corruption_pit
+    sprite: {fileID: 21300000, guid: de9e3960bab87b54aa55f94bf0e3ddfc, type: 3}
+    decal: 1
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0
+  - name: spawn_portal
+    sprite: {fileID: 21300000, guid: de9e3960bab87b54aa55f94bf0e3ddfc, type: 3}
+    decal: 1
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0
+  - name: ruin_0
+    sprite: {fileID: 21300000, guid: 3a1bc0596e0b8b44e83b8a93e106d6be, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.3
+  - name: ruin_1
+    sprite: {fileID: 21300000, guid: 307a927b0b5f3474eab1100d9de6ad1e, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.2
+  - name: ruin_2
+    sprite: {fileID: 21300000, guid: 77cb4cbb5ee343142b17b5b08007830c, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.4
+  - name: torch_0
+    sprite: {fileID: 21300000, guid: 702b6cf0be3ece04a88d74c3f162556a, type: 3}
+    decal: 0
+    torch: 1
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0
+  - name: torch_1
+    sprite: {fileID: 21300000, guid: 8e7bb85392408314f9dd7e904f96847a, type: 3}
+    decal: 0
+    torch: 1
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0
+  - name: banner_raven
+    sprite: {fileID: 21300000, guid: d1b76b0a40a35174486c54b230d1a43c, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0
+  - name: banner_skull
+    sprite: {fileID: 21300000, guid: 0224ab16e5efa12469786cc15f1fb11a, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0
+  - name: shrine
+    sprite: {fileID: 21300000, guid: b4c44f4cd5efa53459ef07054143aed3, type: 3}
+    decal: 0
+    torch: 0
+    lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
+    scatterWeight: 0.15
+  fortressKeep: {fileID: 21300000, guid: 922938c612646854ea0f8e427f6d9c53, type: 3}
+  fortressTower: {fileID: 21300000, guid: 46529e88ef927614c9d2e14c5a4997bf, type: 3}
+  globalLightColor: {r: 0.78, g: 0.8, b: 1, a: 1}
+  globalLightIntensity: 0.78
+  backgroundColor: {r: 0.05490196, g: 0.043137256, b: 0.047058824, a: 1}
+  musicId: music_map1
+  ambientId: ambient_map1

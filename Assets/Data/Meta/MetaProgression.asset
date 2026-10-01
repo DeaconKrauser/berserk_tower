@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efa3058059fdec4888d395e13a5bad9, type: 3}
+  m_Name: MetaProgression
+  m_EditorClassIdentifier: Bastiao.Runtime::MetaProgressionData
+  perKill: 0.1
+  perEliteKill: 1
+  perBossKill: 15
+  perWaveCleared: 2
+  mapVictory: 25
+  perRunTierBonus: 0.25
+  defeatMultiplier: 1
+  replayMultiplier: 0.35
+  goldCarryFraction: 0.25
+  goldCarryMax: 150
+  transitionBonusPerTier: 40
+  enemyHpPerTier: 0.22
+  enemyDamagePerTier: 0.15
+  spawnCountPerTier: 0.12
+  spawnIntervalPerTier: 0.08
+  eliteChancePerTier: 0.06
+  bossHpPerTier: 0.3
+  bossExtraSummonsPerTier: 1
+  goldRewardPerTier: 0.05
+  maxTier: 6

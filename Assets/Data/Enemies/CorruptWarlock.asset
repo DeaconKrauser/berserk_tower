@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c3125a84845b640876f8a39a9cdda1, type: 3}
+  m_Name: CorruptWarlock
+  m_EditorClassIdentifier: Bastiao.Runtime::EnemyData
+  id: CorruptWarlock
+  displayName: Bruxo Corrompido
+  description: 'Conjurador: escuda e cura os aliados. Resiste a magia.'
+  rig: {fileID: 1674387117892622965, guid: 9e0415a83088df7479359e59d2253e67, type: 3}
+  rigScale: 1
+  icon: {fileID: 21300000, guid: eea40961fd21b844489308569f76bcd8, type: 3}
+  maxHp: 220
+  armor: 0
+  physicalResistance: -0.25
+  fireResistance: 0
+  magicResistance: 0.6
+  bleedResistance: 0
+  regenPerSecond: 0
+  tags: 136
+  movementSpeed: 0.95
+  bodyRadius: 0.31
+  bodyLength: 0.31
+  damageToFortress: 2
+  meleeDamage: 10
+  attackInterval: 1.4
+  goldReward: 12
+  castInterval: 7.5
+  castRadius: 2
+  castShield: 45
+  castHeal: 20
+  splitInto: {fileID: 0}
+  splitCount: 0
+  feedHeal: 0
+  feedRadius: 0
+  boss: {fileID: 0}
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightRadius: 0
+  spawnSfx: 
+  attackSfx: enemy_attack
+  hitSfx: enemy_hit
+  deathSfx: enemy_death

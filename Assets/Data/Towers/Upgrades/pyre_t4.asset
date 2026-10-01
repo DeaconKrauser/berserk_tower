@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618ccf354d2a1804da0151696357b8a7, type: 3}
+  m_Name: pyre_t4
+  m_EditorClassIdentifier: Bastiao.Runtime::TowerUpgradeData
+  displayName: Inferno do Eclipse
+  description: "Cada impacto deixa o ch\xE3o em chamas por alguns segundos."
+  cost: 380
+  sprite: {fileID: 21300000, guid: 3966acf2f622bbc44968b91998489d2b, type: 3}
+  muzzleHeight: 2.6
+  stats:
+    damage: 30
+    damageType: 1
+    attackInterval: 1.5
+    range: 3.8
+    projectileSpeed: 0
+    armorPenetration: 0
+    splashRadius: 1.9
+    targets: 1
+    pierce: 0
+    critChance: 0
+    critMultiplier: 0
+    bossDamageMultiplier: 0
+    stunChance: 0
+    stunDuration: 0
+    burnDps: 12
+    burnDuration: 3
+    bleedDps: 0
+    bleedDuration: 0
+    slowAmount: 0
+    slowDuration: 0
+    vulnerability: 0
+    curseDuration: 0
+    armorShred: 0
+    curseSpreads: 0
+    groundFireDps: 18
+    groundFireDuration: 4
+    groundFireRadius: 1.3
+    chainCount: 0
+    chainRange: 0
+    chainFalloff: 0
+    executeThreshold: 0
+    auraRadius: 0
+    auraDamageBonus: 0
+    auraAttackSpeedBonus: 0
+    auraRangeBonus: 0
+    auraArmorShred: 0
+    commanderHealPerSecond: 0
+    trapDurability: 0

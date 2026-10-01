@@ -1,0 +1,165 @@
+{
+ "name": "CommanderScarlet",
+ "ppu": 32,
+ "height": 74,
+ "width": 58,
+ "feet": [
+  27.6,
+  74.0
+ ],
+ "parts": [
+  {
+   "name": "hips",
+   "parent": null,
+   "z": -10,
+   "pivot": [
+    28.75,
+    44.4
+   ]
+  },
+  {
+   "name": "cape",
+   "parent": "torso",
+   "z": 0,
+   "pivot": [
+    28.75,
+    11.84
+   ],
+   "sprite": "parts/cape.png",
+   "rect": [
+    0,
+    7,
+    50,
+    62
+   ]
+  },
+  {
+   "name": "legB",
+   "parent": "hips",
+   "z": 1,
+   "pivot": [
+    34.5,
+    45.88
+   ],
+   "sprite": "parts/legB.png",
+   "rect": [
+    28,
+    42,
+    18,
+    30
+   ]
+  },
+  {
+   "name": "armB",
+   "parent": "torso",
+   "z": 2,
+   "pivot": [
+    37.95,
+    14.8
+   ],
+   "sprite": "parts/armB.png",
+   "rect": [
+    35,
+    11,
+    10,
+    29
+   ]
+  },
+  {
+   "name": "legF",
+   "parent": "hips",
+   "z": 3,
+   "pivot": [
+    24.15,
+    45.88
+   ],
+   "sprite": "parts/legF.png",
+   "rect": [
+    10,
+    42,
+    21,
+    32
+   ]
+  },
+  {
+   "name": "skirt",
+   "parent": "hips",
+   "z": 4,
+   "pivot": [
+    29.9,
+    30.34
+   ],
+   "sprite": "parts/skirt.png",
+   "rect": [
+    20,
+    28,
+    20,
+    29
+   ]
+  },
+  {
+   "name": "torso",
+   "parent": "hips",
+   "z": 5,
+   "pivot": [
+    29.9,
+    31.08
+   ],
+   "sprite": "parts/torso.png",
+   "rect": [
+    20,
+    3,
+    21,
+    31
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "torso",
+   "z": 6,
+   "pivot": [
+    32.2,
+    10.36
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    24,
+    0,
+    14,
+    13
+   ]
+  },
+  {
+   "name": "armF",
+   "parent": "torso",
+   "z": 7,
+   "pivot": [
+    21.27,
+    14.8
+   ],
+   "sprite": "parts/armF.png",
+   "rect": [
+    11,
+    8,
+    18,
+    29
+   ]
+  },
+  {
+   "name": "weapon",
+   "parent": "armF",
+   "z": 8,
+   "pivot": [
+    17.82,
+    37.0
+   ],
+   "sprite": "parts/weapon.png",
+   "rect": [
+    9,
+    31,
+    49,
+    43
+   ]
+  }
+ ]
+}

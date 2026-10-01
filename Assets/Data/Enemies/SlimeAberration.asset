@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c3125a84845b640876f8a39a9cdda1, type: 3}
+  m_Name: SlimeAberration
+  m_EditorClassIdentifier: Bastiao.Runtime::EnemyData
+  id: SlimeAberration
+  displayName: "Aberra\xE7\xE3o do Lodo"
+  description: "Absorve golpes f\xEDsicos e se divide ao morrer. Queima bem."
+  rig: {fileID: 7782414584872909750, guid: 330be78210e957f4da15ada81783a9d7, type: 3}
+  rigScale: 1
+  icon: {fileID: 21300000, guid: 120019efb8626e4439a658c3b200f933, type: 3}
+  maxHp: 520
+  armor: 0
+  physicalResistance: 0.45
+  fireResistance: -0.35
+  magicResistance: 0
+  bleedResistance: 0.8
+  regenPerSecond: 0
+  tags: 4
+  movementSpeed: 0.65
+  bodyRadius: 0.5
+  bodyLength: 0.5
+  damageToFortress: 2
+  meleeDamage: 18
+  attackInterval: 1.6
+  goldReward: 14
+  castInterval: 0
+  castRadius: 0
+  castShield: 0
+  castHeal: 0
+  splitInto: {fileID: 11400000, guid: 8920c7880ca0dea4aadb5d9fd6f1daef, type: 2}
+  splitCount: 2
+  feedHeal: 0
+  feedRadius: 0
+  boss: {fileID: 0}
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightRadius: 0
+  spawnSfx: 
+  attackSfx: enemy_attack
+  hitSfx: enemy_hit
+  deathSfx: slime_death

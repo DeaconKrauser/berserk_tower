@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c3125a84845b640876f8a39a9cdda1, type: 3}
+  m_Name: BlackKnight
+  m_EditorClassIdentifier: Bastiao.Runtime::EnemyData
+  id: BlackKnight
+  displayName: Cavaleiro Negro
+  description: 'Armadura pesada: flechas mal arranham.'
+  rig: {fileID: 7210398269267063844, guid: 40c13798f23df0f47b3ec64868f33187, type: 3}
+  rigScale: 1
+  icon: {fileID: 21300000, guid: 523a2859d14b31b43b60cd48cca545dd, type: 3}
+  maxHp: 860
+  armor: 14
+  physicalResistance: 0
+  fireResistance: 0
+  magicResistance: 0
+  bleedResistance: 0.3
+  regenPerSecond: 0
+  tags: 10
+  movementSpeed: 0.7
+  bodyRadius: 0.45
+  bodyLength: 0.45
+  damageToFortress: 3
+  meleeDamage: 32
+  attackInterval: 1.5
+  goldReward: 22
+  castInterval: 0
+  castRadius: 0
+  castShield: 0
+  castHeal: 0
+  splitInto: {fileID: 0}
+  splitCount: 0
+  feedHeal: 0
+  feedRadius: 0
+  boss: {fileID: 0}
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightRadius: 0
+  spawnSfx: 
+  attackSfx: enemy_attack
+  hitSfx: enemy_hit
+  deathSfx: enemy_death

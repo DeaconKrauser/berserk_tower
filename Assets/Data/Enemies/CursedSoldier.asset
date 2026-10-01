@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c3125a84845b640876f8a39a9cdda1, type: 3}
+  m_Name: CursedSoldier
+  m_EditorClassIdentifier: Bastiao.Runtime::EnemyData
+  id: CursedSoldier
+  displayName: "Soldado Amaldi\xE7oado"
+  description: "Morto-vivo de escudo. Vem em massa; queima f\xE1cil."
+  rig: {fileID: 7558172477444770578, guid: 6105999743c57684bb13fc068dbb152c, type: 3}
+  rigScale: 1
+  icon: {fileID: 21300000, guid: 397bfdffd26826c4b85fabcbf2e5ab7f, type: 3}
+  maxHp: 175
+  armor: 3
+  physicalResistance: 0
+  fireResistance: -0.25
+  magicResistance: 0
+  bleedResistance: 0.2
+  regenPerSecond: 0
+  tags: 36
+  movementSpeed: 0.95
+  bodyRadius: 0.33
+  bodyLength: 0.33
+  damageToFortress: 1
+  meleeDamage: 10
+  attackInterval: 1.3
+  goldReward: 5
+  castInterval: 0
+  castRadius: 0
+  castShield: 0
+  castHeal: 0
+  splitInto: {fileID: 0}
+  splitCount: 0
+  feedHeal: 0
+  feedRadius: 0
+  boss: {fileID: 0}
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightRadius: 0
+  spawnSfx: 
+  attackSfx: enemy_attack
+  hitSfx: enemy_hit
+  deathSfx: enemy_death

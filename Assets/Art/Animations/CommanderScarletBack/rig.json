@@ -1,0 +1,133 @@
+{
+ "name": "CommanderScarletBack",
+ "ppu": 32,
+ "height": 74,
+ "width": 57,
+ "feet": [
+  33.75,
+  74.0
+ ],
+ "parts": [
+  {
+   "name": "hips",
+   "parent": null,
+   "z": -10,
+   "pivot": [
+    33.75,
+    45.88
+   ]
+  },
+  {
+   "name": "legB",
+   "parent": "hips",
+   "z": 1,
+   "pivot": [
+    20.81,
+    52.54
+   ],
+   "sprite": "parts/legB.png",
+   "rect": [
+    14,
+    51,
+    13,
+    21
+   ]
+  },
+  {
+   "name": "legF",
+   "parent": "hips",
+   "z": 2,
+   "pivot": [
+    38.25,
+    45.88
+   ],
+   "sprite": "parts/legF.png",
+   "rect": [
+    30,
+    44,
+    19,
+    30
+   ]
+  },
+  {
+   "name": "torso",
+   "parent": "hips",
+   "z": 3,
+   "pivot": [
+    34.88,
+    44.4
+   ],
+   "sprite": "parts/torso.png",
+   "rect": [
+    25,
+    9,
+    20,
+    39
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "torso",
+   "z": 4,
+   "pivot": [
+    33.75,
+    10.36
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    26,
+    0,
+    13,
+    13
+   ]
+  },
+  {
+   "name": "armF",
+   "parent": "torso",
+   "z": 5,
+   "pivot": [
+    40.5,
+    14.8
+   ],
+   "sprite": "parts/armF.png",
+   "rect": [
+    34,
+    10,
+    12,
+    30
+   ]
+  },
+  {
+   "name": "weapon",
+   "parent": "armF",
+   "z": 6,
+   "pivot": [
+    45.0,
+    37.0
+   ],
+   "sprite": "parts/weapon.png",
+   "rect": [
+    40,
+    32,
+    17,
+    40
+   ]
+  },
+  {
+   "name": "cape",
+   "parent": "torso",
+   "z": 7,
+   "pivot": [
+    28.12,
+    10.36
+   ],
+   "sprite": "parts/cape.png",
+   "rect": [
+    0,
+    5,
+    36,
+    64
+   ]
+  }
+ ]
+}

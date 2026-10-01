@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39ba71de12f3b341bc3b7f2188e3135, type: 3}
+  m_Name: m2_chokes
+  m_EditorClassIdentifier: Bastiao.Runtime::RouteData
+  displayName: Gargalos do Lodo
+  layout: gargalos
+  paths:
+  - points:
+    - {x: -16.5, y: -3.4}
+    - {x: -11, y: -3.6}
+    - {x: -8, y: -0.4}
+    - {x: -10, y: 3.6}
+    - {x: -5, y: 5.2}
+    - {x: -1, y: 2.2}
+    - {x: -2.6, y: -2.2}
+    - {x: 1.5, y: -4.4}
+    - {x: 5.6, y: -2.8}
+    - {x: 6.6, y: 1.6}
+    - {x: 9.6, y: 4}
+    - {x: 11.6, y: 2.2}
+    - {x: 13.1, y: 0}
+  roadHalfWidth: 0.78
+  fortressPosition: {x: 13.1, y: 0}
+  commanderStart: {x: 3.8, y: 0.8}
+  zones:
+  - kind: 2
+    center: {x: 3.6, y: -4.1}
+    radius: 1.4
+    reason: "\xC1gua negra: n\xE3o h\xE1 ch\xE3o firme"
+  - kind: 2
+    center: {x: -13.2, y: 0.6}
+    radius: 1.7
+    reason: "\xC1gua negra: n\xE3o h\xE1 ch\xE3o firme"
+  - kind: 2
+    center: {x: -4.6, y: 0.2}
+    radius: 1.3
+    reason: "\xC1gua negra: n\xE3o h\xE1 ch\xE3o firme"
+  - kind: 2
+    center: {x: 9.8, y: -2}
+    radius: 1.5
+    reason: "\xC1gua negra: n\xE3o h\xE1 ch\xE3o firme"
+  props:
+  - prop: totem
+    position: {x: -7, y: 1.6}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  - prop: totem
+    position: {x: 8.2, y: 1}
+    block: 1
+    blockRadius: 0
+    flip: 1
+  - prop: mossy_rock
+    position: {x: 0.4, y: 0.4}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  - prop: stump
+    position: {x: -12, y: -1.6}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  - prop: reeds_0
+    position: {x: 2.4, y: -2.4}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  - prop: reeds_1
+    position: {x: 11, y: -3.6}
+    block: 1
+    blockRadius: 0
+    flip: 0
+  decorSeed: 67
+  decorDensity: 0.6

@@ -1,0 +1,165 @@
+{
+ "name": "BlackSwordsman",
+ "ppu": 32,
+ "height": 76,
+ "width": 59,
+ "feet": [
+  24.78,
+  76.0
+ ],
+ "parts": [
+  {
+   "name": "hips",
+   "parent": null,
+   "z": -10,
+   "pivot": [
+    27.73,
+    45.6
+   ]
+  },
+  {
+   "name": "cape",
+   "parent": "torso",
+   "z": 0,
+   "pivot": [
+    29.5,
+    16.72
+   ],
+   "sprite": "parts/cape.png",
+   "rect": [
+    0,
+    16,
+    45,
+    51
+   ]
+  },
+  {
+   "name": "weapon",
+   "parent": "armF",
+   "z": 1,
+   "pivot": [
+    15.93,
+    10.64
+   ],
+   "sprite": "parts/weapon.png",
+   "rect": [
+    12,
+    0,
+    47,
+    64
+   ]
+  },
+  {
+   "name": "legB",
+   "parent": "hips",
+   "z": 2,
+   "pivot": [
+    35.4,
+    47.12
+   ],
+   "sprite": "parts/legB.png",
+   "rect": [
+    30,
+    44,
+    21,
+    27
+   ]
+  },
+  {
+   "name": "armB",
+   "parent": "torso",
+   "z": 3,
+   "pivot": [
+    37.76,
+    22.04
+   ],
+   "sprite": "parts/armB.png",
+   "rect": [
+    35,
+    19,
+    18,
+    25
+   ]
+  },
+  {
+   "name": "legF",
+   "parent": "hips",
+   "z": 4,
+   "pivot": [
+    21.24,
+    45.6
+   ],
+   "sprite": "parts/legF.png",
+   "rect": [
+    7,
+    44,
+    21,
+    32
+   ]
+  },
+  {
+   "name": "skirt",
+   "parent": "hips",
+   "z": 5,
+   "pivot": [
+    28.32,
+    37.24
+   ],
+   "sprite": "parts/skirt.png",
+   "rect": [
+    18,
+    35,
+    21,
+    31
+   ]
+  },
+  {
+   "name": "torso",
+   "parent": "hips",
+   "z": 6,
+   "pivot": [
+    29.5,
+    38.0
+   ],
+   "sprite": "parts/torso.png",
+   "rect": [
+    18,
+    10,
+    27,
+    31
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "torso",
+   "z": 7,
+   "pivot": [
+    33.04,
+    19.0
+   ],
+   "sprite": "parts/head.png",
+   "rect": [
+    24,
+    6,
+    18,
+    17
+   ]
+  },
+  {
+   "name": "armF",
+   "parent": "torso",
+   "z": 8,
+   "pivot": [
+    17.7,
+    19.0
+   ],
+   "sprite": "parts/armF.png",
+   "rect": [
+    10,
+    14,
+    16,
+    35
+   ]
+  }
+ ]
+}

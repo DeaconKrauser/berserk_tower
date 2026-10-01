@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc707e554b9297149936124d97fece72, type: 3}
+  m_Name: CursedKnight
+  m_EditorClassIdentifier: Bastiao.Runtime::BossData
+  title: "O Cavaleiro Amaldi\xE7oado"
+  introLine: "O ch\xE3o racha sob o a\xE7o amaldi\xE7oado."
+  introSeconds: 2.2
+  introCameraShake: 0.15
+  summon: {fileID: 11400000, guid: df48779f3fa9957459f772b1e938d248, type: 2}
+  summonCount: 2
+  summonInterval: 14
+  enrageBelowHp: 0.4
+  enrageSpeedMultiplier: 1.45
+  enrageDamageMultiplier: 1.3
+  specialName: "Golpe S\xEDsmico"
+  specialInterval: 11
+  specialRadius: 2.4
+  specialDamage: 120
+  specialStunSeconds: 2.5
+  specialCameraShake: 0.18
+  fortressExecution: 0
