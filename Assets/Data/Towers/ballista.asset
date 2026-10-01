@@ -72,3 +72,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fff0b681be17d7c4ca666c87282c4358, type: 2}
   - {fileID: 11400000, guid: 3cdec3bd3a37f6c48a0ab876d014b7ec, type: 2}
   - {fileID: 11400000, guid: 01f2f233f0890bd4cb7fe0b485e2427f, type: 2}
+  turretBase:
+  - {fileID: 21300000, guid: adb003a719e12b74185b0e44534a7b5a, type: 3}
+  - {fileID: 21300000, guid: 21708d660d0e22a4684131bcc9b6390a, type: 3}
+  - {fileID: 21300000, guid: 3e49c9b69fc8c59438ba60363778232c, type: 3}
+  - {fileID: 21300000, guid: e7cf1f5aea366984d86416bf65bf5f14, type: 3}
+  turretArm:
+  - {fileID: 21300000, guid: 7ff126ba4e90a20479942648f966707a, type: 3}
+  - {fileID: 21300000, guid: e26b472b587f7a240be0461a228dcba3, type: 3}
+  - {fileID: 21300000, guid: 5cb94c85f6a437e46a7881c1c33a203f, type: 3}
+  - {fileID: 21300000, guid: d626a3c15259eb64fa6098211b0bf3e9, type: 3}
+  turretMount:
+  - {x: 0.47, y: 0.345}
+  - {x: 0.47, y: 0.36}
+  - {x: 0.5, y: 0.325}
+  - {x: 0.5, y: 0.37}
+  turretRestAngle: 195
+  turretMaxTurn: 55

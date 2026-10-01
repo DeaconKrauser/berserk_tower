@@ -13,7 +13,7 @@ public class HUDController : MonoBehaviour
     UISkin skin;
 
     Text gold, fortress, waveText, groupText, alive, nextText, banner, tipText, cmdName, bossName;
-    UI.Btn startWave, pauseBtn, autoBtn;
+    UI.Btn startWave, pauseBtn, autoBtn, targetBtn;
     readonly List<UI.Btn> speedBtns = new();
     UI.HpBar cmdBar, bossBar;
     CanvasGroup bossGroup, bannerGroup;
@@ -98,6 +98,12 @@ public class HUDController : MonoBehaviour
             gm.save.Data.settings.autoWaves = b.waves.AutoMode;
             gm.save.Save();
         }, 18, true);
+        targetBtn = UI.Button(transform, "TargetAll", tr, tr, new Vector2(-16, -212), new Vector2(330, 44), "", () =>
+        {
+            b.CycleTargetAll();
+            gm.save.Data.settings.towerTargeting = b.targetAll.HasValue ? (int)b.targetAll.Value : -1;
+            gm.save.Save();
+        }, 18, true);
     }
 
     void BuildCommander()
@@ -113,7 +119,12 @@ public class HUDController : MonoBehaviour
         portrait.preserveAspect = true;
         cmdName = UI.Text(p, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(146, -14), new Vector2(280, 34), 24, TextAnchor.MiddleLeft, UI.Ember, true);
         var cd = b.commander.data;
-        cmdName.text = cd.displayName.ToUpperInvariant() + (sk && !sk.unlockedByDefault ? $"  <size=16><color=#968C84>{sk.displayName}</color></size>" : "");
+        cmdName.text = (sk && !sk.unlockedByDefault ? sk.displayName : cd.displayName).ToUpperInvariant();
+        cmdName.horizontalOverflow = HorizontalWrapMode.Wrap;
+        cmdName.verticalOverflow = VerticalWrapMode.Truncate;
+        cmdName.resizeTextForBestFit = true;
+        cmdName.resizeTextMinSize = 14;
+        cmdName.resizeTextMaxSize = 24;
         cmdBar = UI.Bar(p, "Hp", new Vector2(0, 1), new Vector2(0, 1), new Vector2(146, -54), new Vector2(276, 34), Gfx.CommanderHp, 18);
         var hint = UI.Text(p, "Hint", new Vector2(0, 0), new Vector2(0, 0), new Vector2(146, 12), new Vector2(290, 46), 15, TextAnchor.LowerLeft, UI.Dim);
         hint.text = "[C] seleciona · clique no chão move\nbotão direito sempre move";
@@ -127,8 +138,13 @@ public class HUDController : MonoBehaviour
         ultimateFill.fillOrigin = (int)Image.OriginVertical.Top;
         ultimateTime = UI.Text(ultimate.rect, "Time", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(90, 40), 26, TextAnchor.MiddleCenter, UI.Bone, true);
         UI.Text(ultimate.rect, "Key", new Vector2(1, 1), new Vector2(1, 1), new Vector2(4, 6), new Vector2(30, 26), 18, TextAnchor.UpperRight, UI.Dim, true).text = "Q";
-        UI.Text(p, "UltimateName", new Vector2(1, 0), new Vector2(0.5f, 0), new Vector2(-62, 6), new Vector2(150, 24), 15, TextAnchor.MiddleCenter, UI.Gold).text = cd.ultimateName;
-        ultimate.button.gameObject.AddComponent<UltimateTooltip>().Init(this, cd);
+        var powerName = UI.Text(p, "UltimateName", new Vector2(1, 0), new Vector2(0.5f, 0), new Vector2(-62, 6), new Vector2(118, 24), 15, TextAnchor.MiddleCenter, UI.Gold);
+        powerName.text = b.commander.combat.PowerName;
+        powerName.resizeTextForBestFit = true;
+        powerName.verticalOverflow = VerticalWrapMode.Truncate;
+        powerName.resizeTextMinSize = 10;
+        powerName.resizeTextMaxSize = 15;
+        ultimate.button.gameObject.AddComponent<UltimateTooltip>().Init(this, b.commander.combat);
     }
 
     void BuildTowerBar()
@@ -223,6 +239,7 @@ public class HUDController : MonoBehaviour
             : w.AutoStartIn >= 0 ? $"ONDA {w.WaveNumber + 1} EM {Mathf.CeilToInt(w.AutoStartIn)}s  [ESPAÇO]"
             : $"INICIAR ONDA {w.WaveNumber + 1}  [ESPAÇO]";
         autoBtn.label.text = w.AutoMode ? "ONDAS: <color=#F2A33A>AUTOMÁTICAS</color>" : "ONDAS: MANUAIS";
+        targetBtn.label.text = b.targetAll.HasValue ? $"TORRES MIRAM: <color=#F2A33A>{TargetPriorityNames.Pt(b.targetAll.Value).ToUpperInvariant()}</color>" : "TORRES MIRAM: PADRÃO";
         for (int i = 0; i < speedBtns.Count; i++)
             speedBtns[i].image.sprite = skin ? (b.speedIndex == i ? skin.roundActive : skin.roundNormal) : null;
         pauseBtn.label.text = b.paused ? "▶" : "II";
@@ -294,16 +311,16 @@ public class HUDController : MonoBehaviour
 public class UltimateTooltip : MonoBehaviour, UnityEngine.EventSystems.IPointerEnterHandler, UnityEngine.EventSystems.IPointerExitHandler
 {
     HUDController hud;
-    CommanderData d;
+    CommanderCombat c;
 
-    public void Init(HUDController h, CommanderData data)
+    public void Init(HUDController h, CommanderCombat combat)
     {
         hud = h;
-        d = data;
+        c = combat;
     }
 
     public void OnPointerEnter(UnityEngine.EventSystems.PointerEventData e) =>
-        hud.SetHoverTip($"[Q] {d.ultimateName}: {d.ultimateDescription} Recarga {d.ultimateCooldown:0}s.");
+        hud.SetHoverTip($"[Q] {c.PowerName}: {c.PowerDescription} Recarga {c.PowerCooldown:0}s.");
 
     public void OnPointerExit(UnityEngine.EventSystems.PointerEventData e) => hud.SetHoverTip(null);
 }

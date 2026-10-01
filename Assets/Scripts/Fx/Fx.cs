@@ -56,7 +56,7 @@ public static class Fx
         go.transform.SetParent(Root, false);
         go.transform.position = at;
         var sr = go.AddComponent<SpriteRenderer>();
-        sr.sprite = Gfx.Circle(radius, new Color(color.r, color.g, color.b, 0.22f), color);
+        sr.sprite = Gfx.Circle(radius, new Color(color.r, color.g, color.b, 0.22f * color.a), color);
         sr.sortingOrder = order;
         go.AddComponent<FadeScale>().Set(seconds, 0.55f, 1f, sr);
     }

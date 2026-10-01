@@ -137,9 +137,7 @@ SWORDSMAN_PARTS = {
     "armF": dict(poly=[(0.2, 0.22), (0.36, 0.2), (0.42, 0.3), (0.38, 0.45), (0.36, 0.6), (0.27, 0.63), (0.2, 0.55), (0.17, 0.38)],
                  pivot=(0.3, 0.25), parent="torso", z=8),
 }
-SWORDSMAN_MOTION = hm(stride=22, arm_swing=10, armF_swing=0.3, bob=1.5, lean=3, walk_period=0.9, cape_walk=5,
-                      attack=dict(length=0.85, wind=-40, wind_weapon=-35, strike=95, strike_weapon=35, lean_back=6, lean_fwd=-12),
-                      special=dict(length=0.95, wind=-95, slam=125, t_wind=0.22, t_slam=0.35))
+SWORDSMAN_MOTION = hm(kind="swordsman", stride=22, arm_swing=10, armF_swing=0.3, bob=1.5, lean=3, walk_period=0.9, cape_walk=5)
 
 SWORDSMAN_BACK_PARTS = {
     H: joint((0.42, 0.62)),
@@ -254,7 +252,9 @@ BOSS_KNIGHT_MOTION = hm(cape=None, skirt="skirt", stride=13, lift=2.5, arm_swing
 SWAMP_GUARDIAN_PARTS = {
     H: joint((0.5, 0.63)),
     "weapon_back": dict(poly=[(0.84, 0.05), (0.9, 0.09), (0.62, 0.36), (0.42, 0.55), (0.36, 0.52), (0.58, 0.32)],
-                        pivot=(0.31, 0.62), parent="weapon", z=0, fill=True),
+                        pivot=(0.31, 0.62), parent="weapon", z=0, fill=True,
+                        # rebuild only the shaft hidden behind the body (a wide fill smeared moss green along it)
+                        fill_mask=[(0.855, 0.055), (0.885, 0.085), (0.405, 0.55), (0.375, 0.525)]),
     "legB": dict(poly=[(0.55, 0.62), (0.72, 0.62), (0.76, 0.78), (0.79, 0.9), (0.62, 0.91), (0.58, 0.78)], pivot=(0.62, 0.64), parent=H, z=1, fill=True),
     "legF": dict(poly=[(0.3, 0.62), (0.47, 0.62), (0.46, 0.78), (0.44, 0.95), (0.43, 1.0), (0.29, 1.0), (0.31, 0.85), (0.29, 0.72)],
                  pivot=(0.38, 0.64), parent=H, z=2, fill=True),
@@ -268,9 +268,9 @@ SWAMP_GUARDIAN_PARTS = {
     "weapon": dict(poly=[(0.38, 0.55), (0.42, 0.58), (0.35, 0.67), (0.28, 0.76), (0.25, 0.9), (0.14, 0.94), (0.0, 0.9), (0.04, 0.8),
                          (0.1, 0.66), (0.2, 0.63), (0.3, 0.6)], pivot=(0.31, 0.62), parent="armF", z=8),
 }
-SWAMP_GUARDIAN_MOTION = hm(cape=None, stride=12, lift=2.5, arm_swing=5, bob=2.5, lean=2, walk_period=1.25, death_drop=16,
-                           attack=dict(length=1.0, wind=-70, wind_weapon=-25, strike=40, strike_weapon=10, lean_back=6, lean_fwd=-10, lunge=3),
-                           special=dict(length=1.4, arm="armB", wind=60, slam=-35, t_wind=0.6, t_slam=0.76), intro=True, cast=True)
+SWAMP_GUARDIAN_MOTION = hm(kind="guardian", cape=None, stride=12, lift=2.5, arm_swing=5, bob=2.5, lean=2, walk_period=1.25, death_drop=16,
+                           # the slam lands when BossController's 1.0 s telegraph ends
+                           special=dict(length=1.5, arm="armB", wind=60, slam=-35, t_wind=0.75, t_slam=1.0), intro=True, cast=True)
 
 
 # ---------------------------------------------------------------- map 2 enemies

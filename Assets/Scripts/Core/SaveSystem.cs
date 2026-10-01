@@ -37,6 +37,7 @@ public class MetaSave
         public bool showDamageNumbers = true;
         public int resolutionWidth, resolutionHeight;   // 0 = resolução nativa do monitor
         public bool autoWaves;                          // próxima onda começa sozinha após a contagem
+        public int towerTargeting = -1;                 // alvo de todas as torres: -1 padrão de cada torre, senão TargetPriority
     }
 
     public int Level(CommanderAttribute id) => attributes.Find(a => a.id == id)?.level ?? 0;

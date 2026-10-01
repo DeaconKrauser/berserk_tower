@@ -72,3 +72,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0e4bb5d6be5e7e4eb7fc0ecefa65711, type: 2}
   - {fileID: 11400000, guid: b86f66aa3e69d924c93358cb14c01614, type: 2}
   - {fileID: 11400000, guid: 3b2d4a4293af9454e8d5747f51d6d777, type: 2}
+  turretBase: []
+  turretArm: []
+  turretMount: []
+  turretRestAngle: 195
+  turretMaxTurn: 55

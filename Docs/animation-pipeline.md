@@ -81,7 +81,7 @@ Root (Animator + SortingGroup, nunca animado — a gameplay move o pai)
 |---|---|---|---|---|
 | Commander = Ulric (+ Scarlet, Eclipse) | 58×74 | capa, 2 pernas, saiote, torso, cabeça, 2 braços, montante | Idle Walk Attack Hit Death Spawn + **Special** (Fúria Negra: giro completo do montante) | movimento feito à mão (`commander`): ataque por cima da cabeça com antecipação, golpe, impacto e recuperação; capa e cabeça com atraso |
 | CommanderBack (+ variantes) | 57×74 | 7 | idem | vista de costas: troca automática ao andar para cima da tela; ataques/golpes sempre de frente |
-| BlackSwordsman / Back | 59×76 / 61×76 | 9 / 8 | idem | arte própria da skin |
+| BlackSwordsman / Back | 59×76 / 61×76 | 9 / 8 | idem | arte própria da skin; movimento `swordsman`: a espada fica nas costas e cada golpe é uma volta completa do braço (sai das costas, passa por cima, corta na frente e volta às costas); Special = vestir a armadura (Armadura do Abismo) |
 | CursedSoldier | 49×62 | 8 (escudo separado) | Idle Walk Attack Hit Death Spawn | |
 | BlackKnight | 56×92 | 9 | idem | |
 | Hooded | 34×60 | 5 (barra da túnica anda) | + Cast | túnica: pernas não aparecem |
@@ -90,7 +90,7 @@ Root (Animator + SortingGroup, nunca animado — a gameplay move o pai)
 | Ghoul (Carniçal) | 70×46 | 8 (4 patas, cauda, cabeça, mandíbula) | trote em diagonal | |
 | SlimeAberration | 51×44 | 3 (corpo, olhos, respingo) | squash & stretch | corpo modelado com a paleta da poça de lodo |
 | CursedKnight (chefe) | 136×134 | 8 | + Intro, Special | arte original em grade nativa + Scale2x |
-| SwampGuardian (chefe) | 152×150 | 9 (alabarda em 2 partes) | + Intro, Special, Cast | |
+| SwampGuardian (chefe) | 152×150 | 9 (alabarda em 2 partes) | + Intro, Special, Cast | movimento `guardian`: passo pesado com queda a cada pisada, braço de raízes rastejando no idle, alabarda que vai por trás e desce cortando (impacto 0,62 s); o golpe do Special cai junto com o fim do aviso vermelho (1,0 s) |
 
 Splash art (menus): `splash.png` do comandante e das skins. O comandante e as recolorações usam a **grade
 nativa** da design sheet aprovada (1 pixel da arte = 1 pixel do sprite, 147×190), exibida a 3× — a versão anterior
@@ -98,6 +98,11 @@ era a figura de 74 px ampliada, por isso parecia borrada/serrilhada. O Espadachi
 grade): reduzido por área + paleta para 196 px de altura. O retrato da HUD é um recorte do rosto dessa mesma arte.
 
 ## 4. Efeitos
+
+Tochas: a chama é um sprite separado (`*_flame.png`, `tools/build_assets.py split_flame`) que o jogo estica, balança e
+faz soltar brasas (`TorchFlame`), junto da luz que pisca. Balista: arma separada da base (`*_arm.png`/`*_base.png`)
+que gira para acompanhar o alvo.
+
 
 Partículas quadradas no grid de pixels (`Fx.Burst`), anéis de área, flash de impacto, relâmpago do Obelisco,
 chão em chamas da Pira T4, flecha cravada, rastro do golpe do comandante (`Fx.Slash`), tremor de câmera leve

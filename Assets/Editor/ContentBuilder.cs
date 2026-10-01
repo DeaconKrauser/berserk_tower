@@ -184,7 +184,26 @@ public static class ContentBuilder
         return t;
     }
 
+    // The ballista's weapon turns to follow its target: base + arm sprites from tools/build_assets.py (split_turret);
+    // mount = (u, v) of the pivot on the sprite, v = the cut line there (TURRETS).
+    static void Turret(TowerData t, params Vector2[] mounts)
+    {
+        t.turretBase = mounts.Select((_, i) => S($"{Art}/Towers/{t.id}_t{i + 1}_base.png")).ToArray();
+        t.turretArm = mounts.Select((_, i) => S($"{Art}/Towers/{t.id}_t{i + 1}_arm.png")).ToArray();
+        t.turretMount = mounts;
+        t.turretRestAngle = 195f;
+        t.turretMaxTurn = 55f;
+    }
+
     static List<TowerData> Towers(Dictionary<string, ProjectileData> p)
+    {
+        var list = TowerList(p);
+        Turret(list.Find(t => t.id == "ballista"), new Vector2(0.47f, 0.345f), new Vector2(0.47f, 0.36f), new Vector2(0.5f, 0.325f), new Vector2(0.5f, 0.37f));
+        foreach (var t in list) EditorUtility.SetDirty(t);
+        return list;
+    }
+
+    static List<TowerData> TowerList(Dictionary<string, ProjectileData> p)
     {
         var none = new Color(0, 0, 0, 0);
         return new List<TowerData>
@@ -489,6 +508,7 @@ public static class ContentBuilder
     static PropSprite Prop(string name, string path, float scatter = 0, bool decal = false, bool torch = false, Color? light = null) => new()
     {
         name = name, sprite = S(path), scatterWeight = scatter, decal = decal, torch = torch, lightColor = light ?? new Color(1f, 0.6f, 0.28f),
+        flame = torch ? S(path.Replace(".png", "_flame.png")) : null,
     };
 
     static Sprite[] Tiles(string folder, string prefix, int n) =>
@@ -512,7 +532,8 @@ public static class ContentBuilder
         m1.groundTiles = Tiles("Map1", "dirt", 9);
         m1.groundAccentTiles = new Sprite[0];
         m1.roadTiles = Tiles("Map1", "cobble", 9);
-        m1.roadAccentTiles = Tiles("Map1", "cobble_broken", 2);
+        m1.roadAccentTiles = new Sprite[0];
+        m1.roadStyle = RoadStyle.Cobble;
         m1.waterTiles = new Sprite[0];
         m1.bridgeTiles = new Sprite[0];
         m1.props = new List<PropSprite>
@@ -544,9 +565,10 @@ public static class ContentBuilder
         m2.waveClearBonus = 22;
         m2.waveClearBonusPerWave = 5;
         m2.groundTiles = Tiles("Map2", "roots", 4);
-        m2.groundAccentTiles = Tiles("Map2", "mud", 2);
+        m2.groundAccentTiles = new Sprite[0];   // square mud tiles read as pasted blocks on the roots
         m2.roadTiles = Tiles("Map2", "mud", 4);
         m2.roadAccentTiles = new Sprite[0];
+        m2.roadStyle = RoadStyle.Mud;
         m2.waterTiles = Tiles("Map2", "water", 4);
         m2.bridgeTiles = Tiles("Map2", "planks", 4);
         m2.roadRim = new Color(0.08f, 0.1f, 0.06f);
@@ -630,7 +652,8 @@ public static class ContentBuilder
 
     static List<CommanderSkinData> Skins()
     {
-        CommanderSkinData Skin(string id, string name, string desc, string rig, int cost, bool free, Color accent)
+        CommanderSkinData Skin(string id, string name, string desc, string rig, int cost, bool free, Color accent,
+                               CommanderPower power, string powerName, string powerDesc, float cooldown)
         {
             var s = Asset<CommanderSkinData>($"{D}/Skins/{id}.asset");
             s.id = id;
@@ -645,15 +668,23 @@ public static class ContentBuilder
             s.unlockCost = cost;
             s.unlockedByDefault = free;
             s.accent = accent;
+            s.power = power;
+            s.powerName = powerName;
+            s.powerDescription = powerDesc;
+            s.powerCooldown = cooldown;
             EditorUtility.SetDirty(s);
             return s;
         }
         return new List<CommanderSkinData>
         {
-            Skin("base", "Ulric", "Capitão da Companhia do Corvo: o mercenário que se recusou a abandonar o último bastião. Placas enegrecidas, manto rubro, espada maior que a fé.", "Commander", 0, true, new Color(0.95f, 0.64f, 0.23f)),
-            Skin("black_swordsman", "Espadachim Negro", "Um mercenário sem nome, encapuzado, com uma lâmina larga às costas e cicatrizes que não contam histórias.", "BlackSwordsman", 150, false, new Color(0.7f, 0.7f, 0.8f)),
-            Skin("scarlet_veteran", "Veterano Escarlate", "Armadura laqueada de vermelho e manto cor de cinza: sobreviveu a cem cercos.", "CommanderScarlet", 100, false, new Color(1f, 0.35f, 0.3f)),
-            Skin("eclipse_knight", "Cavaleiro do Eclipse", "Aço negro tingido de violeta pela noite em que o sol morreu.", "CommanderEclipse", 250, false, new Color(0.65f, 0.35f, 1f)),
+            Skin("base", "Ulric", "Capitão da Companhia do Corvo: o mercenário que se recusou a abandonar o último bastião. Placas enegrecidas, manto rubro, espada maior que a fé.", "Commander", 0, true, new Color(0.95f, 0.64f, 0.23f),
+                CommanderPower.BlackFury, "Fúria Negra", "Gira a montante em volta de si: dano pesado em área e atordoa inimigos comuns; depois, 8 s de fúria (golpes mais rápidos e fortes, menos dano recebido).", 45f),
+            Skin("black_swordsman", "Espadachim Negro", "Um mercenário sem nome, encapuzado, com uma lâmina larga às costas e cicatrizes que não contam histórias.", "BlackSwordsman", 150, false, new Color(0.7f, 0.7f, 0.8f),
+                CommanderPower.AbyssArmor, "Armadura do Abismo", "Veste a armadura amaldiçoada e avança como um raio sobre até 6 inimigos seguidos, cortando cada um (atordoa os comuns); a armadura fica 8 s: golpes mais rápidos e fortes, menos dano recebido.", 40f),
+            Skin("scarlet_veteran", "Veterano Escarlate", "Armadura laqueada de vermelho e manto cor de cinza: sobreviveu a cem cercos.", "CommanderScarlet", 100, false, new Color(1f, 0.35f, 0.3f),
+                CommanderPower.ScarletBanner, "Estandarte Escarlate", "Crava um estandarte de guerra por 10 s: torres num raio de 4 causam +35% de dano e atacam 25% mais rápido. Recupera 35% da vida na hora.", 50f),
+            Skin("eclipse_knight", "Cavaleiro do Eclipse", "Aço negro tingido de violeta pela noite em que o sol morreu.", "CommanderEclipse", 250, false, new Color(0.65f, 0.35f, 1f),
+                CommanderPower.Eclipse, "Eclipse", "Um sol negro explode à sua volta (raio 3,6): dano mágico e, por 6 s, maldição (+30% de dano sofrido, −6 de armadura) e 45% de lentidão em todos, chefes inclusive.", 45f),
         };
     }
 

@@ -62,107 +62,122 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e1e88010ef43a4a418724845c95fd25a, type: 3}
   - {fileID: 21300000, guid: 519d5e1ddc3f251469343e0fbe2d7212, type: 3}
   - {fileID: 21300000, guid: 33b93630e368d024987739d87ec98848, type: 3}
-  roadAccentTiles:
-  - {fileID: 21300000, guid: 7395fdd25e66c6548918d493ea105f11, type: 3}
-  - {fileID: 21300000, guid: b6af3671583ec03469e2818040132945, type: 3}
+  roadAccentTiles: []
   waterTiles: []
   bridgeTiles: []
   roadRim: {r: 0.12, g: 0.1, b: 0.1, a: 1}
+  roadStyle: 0
   props:
   - name: ruin_wall
     sprite: {fileID: 21300000, guid: 8a90798705e50694f9457e8c6f41246d, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.6
   - name: cross_grave
     sprite: {fileID: 21300000, guid: 2887d2fec13d32143bfa32201107db86, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 1.2
   - name: bones
     sprite: {fileID: 21300000, guid: 3c76678e780a12d44a46e7e7a29ff90a, type: 3}
     decal: 1
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 1.6
   - name: torch_post
     sprite: {fileID: 21300000, guid: c68f4646a0d14fe48a72a0e8ffb5dce3, type: 3}
     decal: 0
     torch: 1
+    flame: {fileID: 21300000, guid: 36afd52f5a1fe6c48a2c095ec7082c33, type: 3}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.3
   - name: dead_tree
     sprite: {fileID: 21300000, guid: 1dc1ad3e0b12e5a4a99b5b995305cae0, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 1
   - name: rock
     sprite: {fileID: 21300000, guid: 695ed368514a02341b87341c5f1a29ca, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 1
   - name: corruption_pit
     sprite: {fileID: 21300000, guid: de9e3960bab87b54aa55f94bf0e3ddfc, type: 3}
     decal: 1
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0
   - name: spawn_portal
     sprite: {fileID: 21300000, guid: de9e3960bab87b54aa55f94bf0e3ddfc, type: 3}
     decal: 1
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0
   - name: ruin_0
     sprite: {fileID: 21300000, guid: 3a1bc0596e0b8b44e83b8a93e106d6be, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.3
   - name: ruin_1
     sprite: {fileID: 21300000, guid: 307a927b0b5f3474eab1100d9de6ad1e, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.2
   - name: ruin_2
     sprite: {fileID: 21300000, guid: 77cb4cbb5ee343142b17b5b08007830c, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.4
   - name: torch_0
     sprite: {fileID: 21300000, guid: 702b6cf0be3ece04a88d74c3f162556a, type: 3}
     decal: 0
     torch: 1
+    flame: {fileID: 21300000, guid: f7f9b1f8239024f4cb7e489e8b390117, type: 3}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0
   - name: torch_1
     sprite: {fileID: 21300000, guid: 8e7bb85392408314f9dd7e904f96847a, type: 3}
     decal: 0
     torch: 1
+    flame: {fileID: 21300000, guid: 5c20be958a13a3a4ea4b1b2e61aac004, type: 3}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0
   - name: banner_raven
     sprite: {fileID: 21300000, guid: d1b76b0a40a35174486c54b230d1a43c, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0
   - name: banner_skull
     sprite: {fileID: 21300000, guid: 0224ab16e5efa12469786cc15f1fb11a, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0
   - name: shrine
     sprite: {fileID: 21300000, guid: b4c44f4cd5efa53459ef07054143aed3, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.15
   fortressKeep: {fileID: 21300000, guid: 922938c612646854ea0f8e427f6d9c53, type: 3}

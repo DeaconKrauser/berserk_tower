@@ -10,10 +10,26 @@ public enum EnemyTag
 
 public enum TargetPriority { First, Strongest, Elite }
 
+public static class TargetPriorityNames
+{
+    public static string Pt(TargetPriority p) => p switch
+    {
+        TargetPriority.Strongest => "mais forte",
+        TargetPriority.Elite => "elites",
+        _ => "primeiro à frente",
+    };
+}
+
 // How a tower acts: fires projectiles, arcs magic between enemies, buffs neighbours, or waits on the road.
 public enum TowerKind { Projectile, Chain, Aura, Trap }
 
 public enum PlacementRule { OffRoad, OnRoad }
+
+// How MapController paints the road surface (always continuous, never tile blocks).
+public enum RoadStyle { Cobble, Mud }
+
+// The [Q] power each skin brings (CommanderCombat).
+public enum CommanderPower { BlackFury, AbyssArmor, ScarletBanner, Eclipse }
 
 public enum CommanderAttribute { Strength, Vigor, Fury, Discipline, Tactics, DarkFaith }
 

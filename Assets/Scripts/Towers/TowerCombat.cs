@@ -6,7 +6,8 @@ using UnityEngine;
 public class TowerCombat : MonoBehaviour
 {
     TowerController t;
-    float cooldown = 0.4f, pulse;
+    float cooldown = 0.4f, pulse, scan;
+    EnemyController aim;                   // what a turret tower is tracking between shots
     readonly List<EnemyController> hitChain = new();
 
     public void Init(TowerController owner) => t = owner;
@@ -22,15 +23,30 @@ public class TowerCombat : MonoBehaviour
             case TowerKind.Aura: Aura(dt); break;
             case TowerKind.Trap: Trap(dt); break;
             default:
+                if (t.HasTurret) Track(dt);
                 if ((cooldown -= dt) > 0) return;
                 var s = t.Effective();
-                var targets = TowerTargeting.InRange(t.Pos, s.range, t.data.targeting, s.curseDuration > 0);
+                var targets = TowerTargeting.InRange(t.Pos, s.range, t.priority, s.curseDuration > 0);
                 if (targets.Count == 0) return;
                 cooldown = s.attackInterval;
+                aim = targets[0];
                 if (t.data.kind == TowerKind.Chain) Chain(s, targets[0]);
                 else Shoot(s, targets);
                 break;
         }
+    }
+
+    // The weapon follows its current target every frame and re-picks the best one a few times per second.
+    void Track(float dt)
+    {
+        if ((scan -= dt) <= 0 || !aim || !aim.Alive)
+        {
+            scan = 0.15f;
+            var s = t.Effective();
+            var l = TowerTargeting.InRange(t.Pos, s.range, t.priority, s.curseDuration > 0);
+            aim = l.Count > 0 ? l[0] : null;
+        }
+        if (aim && aim.Alive) t.AimAt(aim.Center);
     }
 
     void Shoot(in TowerStats s, List<EnemyController> targets)

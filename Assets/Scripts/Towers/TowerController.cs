@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 // A built tower: tier, invested gold, visuals (sprite per tier, selection, range), buffs it receives.
@@ -11,6 +12,7 @@ public class TowerController : MonoBehaviour
     public TowerStats stats;
     public float stunLeft;
     public int durability;                 // traps only: wears down as enemies step on it
+    public TargetPriority priority;        // who it shoots first (TowerData default, the HUD's "all towers" rule or the panel)
 
     public TowerUpgradeData NextUpgrade => tier - 1 < data.upgrades.Count ? data.upgrades[tier - 1] : null;
     public int MaxTier => data.MaxTier;
@@ -29,6 +31,10 @@ public class TowerController : MonoBehaviour
     float punch, buildAnim;
     bool selected;
     GameObject stunFx;
+    Transform mount;                       // turret towers (ballista): the weapon turns around this
+    SpriteRenderer arm;
+    float aimAngle;
+    bool aimLeft = true;
 
     public void Init(TowerData d, Vector2 at, int waveIndex)
     {
@@ -37,11 +43,14 @@ public class TowerController : MonoBehaviour
         invested = d.cost;
         builtAtWave = waveIndex;
         durability = d.stats.trapDurability;
+        priority = Battle.I && Battle.I.targetAll.HasValue ? Battle.I.targetAll.Value : d.targeting;
         transform.position = at;
         name = d.displayName;
         bool trap = d.kind == TowerKind.Trap;
         body = Gfx.Renderer(transform, "Body", d.sprite, new Vector2(0, trap ? -0.35f : 0), trap ? Gfx.OrderDecal + 3 : Gfx.OrderWorld);
-        if (!trap) Gfx.Shadow(transform, d.footprintRadius * 2.4f);
+        if (d.turretArm != null && d.turretArm.Length > 0) BuildTurret();
+        RefreshSprites();
+        if (!trap) Gfx.Grounding(transform, d.footprintRadius * 2.5f, Mathf.RoundToInt(at.x * 7 + at.y * 13));
         int w = Mathf.RoundToInt(d.footprintRadius * 2.6f * Gfx.PPU);
         ring = Gfx.Renderer(transform, "Ring", Gfx.Ellipse(w, Mathf.Max(6, w / 2), new Color32(242, 163, 58, 30), new Color32(242, 163, 58, 255)), Vector2.zero, Gfx.OrderOverlay + 1);
         range = Gfx.Renderer(transform, "Range", null, Vector2.zero, Gfx.OrderOverlay);
@@ -70,7 +79,7 @@ public class TowerController : MonoBehaviour
         tier++;
         durability = stats.trapDurability;   // an upgrade rebuilds the spikes
         if (wear != null) wear.Set(1, true);
-        body.sprite = data.SpriteAt(tier);
+        RefreshSprites();
         if (glow)
         {
             glow.pointLightOuterRadius = data.lightRadius * (1 + 0.15f * (tier - 1));
@@ -81,6 +90,53 @@ public class TowerController : MonoBehaviour
         Fx.Burst(Pos + Vector2.up * 0.8f, new Color(1f, 0.8f, 0.4f), 16, 2.2f, 0.7f, 1.5f);
         Fx.Ring(Pos, data.footprintRadius * 1.6f, new Color(1f, 0.75f, 0.35f), 0.4f);
         if (selected) Select(true);
+    }
+
+    // Body + weapon share one SortingGroup so the weapon always draws over its own tower and Y-sorts with it.
+    void BuildTurret()
+    {
+        var visual = new GameObject("Visual");
+        visual.transform.SetParent(transform, false);
+        visual.AddComponent<SortingGroup>().sortingOrder = Gfx.OrderWorld;
+        body.transform.SetParent(visual.transform, false);
+        mount = new GameObject("Mount").transform;
+        mount.SetParent(body.transform, false);
+        arm = Gfx.Renderer(mount, "Arm", null, Vector2.zero, Gfx.OrderWorld + 1);
+    }
+
+    void RefreshSprites()
+    {
+        bool turret = mount && data.HasTurret(tier);
+        body.sprite = turret ? data.turretBase[tier - 1] : data.SpriteAt(tier);
+        if (!mount) return;
+        mount.gameObject.SetActive(turret);
+        if (!turret) return;
+        var s = data.turretArm[tier - 1];
+        var uv = data.turretMount[tier - 1];
+        var m = new Vector2(uv.x * s.rect.width - s.pivot.x, (1 - uv.y) * s.rect.height - s.pivot.y) / Gfx.PPU;
+        mount.localPosition = m;
+        arm.transform.localPosition = -m;
+        arm.sprite = s;
+    }
+
+    public bool HasTurret => mount && mount.gameObject.activeSelf;
+
+    // Turns the weapon toward a world point: mirrored to the target's side (the art faces left), then rotated
+    // at most turretMaxTurn away from the drawn pose, at a finite turning speed.
+    public void AimAt(Vector2 target)
+    {
+        if (!HasTurret) return;
+        Vector2 d = target - (Vector2)mount.position;
+        bool left = d.x < 0;
+        float a = Mathf.Atan2(d.y, left ? d.x : -d.x) * Mathf.Rad2Deg;
+        float turn = Mathf.Clamp(Mathf.DeltaAngle(data.turretRestAngle, a), -data.turretMaxTurn, data.turretMaxTurn);
+        if (left != aimLeft)
+        {
+            aimLeft = left;
+            mount.localScale = new Vector3(left ? 1 : -1, 1, 1);
+        }
+        aimAngle = Mathf.MoveTowardsAngle(aimAngle, left ? turn : -turn, 300f * Time.deltaTime);
+        mount.localRotation = Quaternion.Euler(0, 0, aimAngle);
     }
 
     void RefreshPips()
@@ -118,7 +174,7 @@ public class TowerController : MonoBehaviour
         stunFx.SetActive(true);
     }
 
-    // Stats after War Chapel auras (strongest chapel wins; no stacking) and the commander's Tactics.
+    // Stats after War Chapel auras (strongest chapel wins; no stacking), the commander's Tactics and the Scarlet banner.
     public TowerStats Effective(out float damageBonus, out float speedBonus, out float rangeBonus)
     {
         damageBonus = speedBonus = rangeBonus = 0;
@@ -135,6 +191,11 @@ public class TowerController : MonoBehaviour
         if (IsSupport) return s;
         float tactics = b ? b.TacticsBonusAt(Pos) : 0;
         damageBonus += tactics;
+        if (b && b.commander)
+        {
+            damageBonus += b.commander.combat.BannerDamageBonus(Pos);
+            speedBonus += b.commander.combat.BannerSpeedBonus(Pos);
+        }
         s.damage *= 1 + damageBonus;
         s.burnDps *= 1 + damageBonus;
         s.bleedDps *= 1 + damageBonus;
@@ -151,6 +212,9 @@ public class TowerController : MonoBehaviour
         float top = body.sprite ? body.sprite.bounds.size.y : 2f;
         return Mathf.Abs(p.x - Pos.x) < data.footprintRadius + 0.2f && p.y > Pos.y - data.footprintRadius * 0.8f && p.y < Pos.y + Mathf.Max(top * 0.9f, 0.6f);
     }
+
+    // Tower panel / [T]: first in line <-> strongest.
+    public void CyclePriority() => priority = priority == TargetPriority.First ? TargetPriority.Strongest : TargetPriority.First;
 
     public void Kick() => punch = Mathf.Max(punch, 0.12f);
 

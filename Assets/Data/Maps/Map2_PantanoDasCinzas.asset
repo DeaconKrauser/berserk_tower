@@ -46,9 +46,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6f2abb2e52341414497bffc005b81a56, type: 3}
   - {fileID: 21300000, guid: 6d8919b421f89e74a9ba92178ce0c4d4, type: 3}
   - {fileID: 21300000, guid: 838653377d76e1347a74cfd38f0b1fb4, type: 3}
-  groundAccentTiles:
-  - {fileID: 21300000, guid: a9c2ee16251f3a349a30f489b5d2751c, type: 3}
-  - {fileID: 21300000, guid: e67f212961829394eb454cc14e049975, type: 3}
+  groundAccentTiles: []
   roadTiles:
   - {fileID: 21300000, guid: a9c2ee16251f3a349a30f489b5d2751c, type: 3}
   - {fileID: 21300000, guid: e67f212961829394eb454cc14e049975, type: 3}
@@ -66,71 +64,83 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fbe24a1f9d0c474b9cbf79f4756a305, type: 3}
   - {fileID: 21300000, guid: 3fed8a89bf9ce14408f0efe7d3dd373d, type: 3}
   roadRim: {r: 0.08, g: 0.1, b: 0.06, a: 1}
+  roadStyle: 1
   props:
   - name: reeds_0
     sprite: {fileID: 21300000, guid: 93c83a3374649664c9df16b6e1916985, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 1.4
   - name: reeds_1
     sprite: {fileID: 21300000, guid: b9067f0bc1ae2e045bcb81a7cb1b7f82, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 1.4
   - name: bonepile_0
     sprite: {fileID: 21300000, guid: 72f42ca3b8c04904f83f165ae078826c, type: 3}
     decal: 1
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.8
   - name: bonepile_1
     sprite: {fileID: 21300000, guid: 6e6378af61046d7498185b9e2214a05b, type: 3}
     decal: 1
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.8
   - name: slime_pool
     sprite: {fileID: 21300000, guid: f0bb805319214a94daea15a2a8f12986, type: 3}
     decal: 1
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.5
   - name: mossy_rock
     sprite: {fileID: 21300000, guid: f47cfee18ad6db349aaef9db176c54cc, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.5
   - name: mushrooms
     sprite: {fileID: 21300000, guid: 5eb46da70ac382a48ac2b177f27aa2ef, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 0.5, g: 1, b: 0.4, a: 1}
     scatterWeight: 1
   - name: stump
     sprite: {fileID: 21300000, guid: afb35cefb7e56e646a46bacbeecd13a0, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.8
   - name: totem
     sprite: {fileID: 21300000, guid: 0920552916f612247bc6dc6905d955db, type: 3}
     decal: 0
     torch: 1
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.25, b: 0.2, a: 1}
     scatterWeight: 0.25
   - name: spawn_portal
     sprite: {fileID: 21300000, guid: f0bb805319214a94daea15a2a8f12986, type: 3}
     decal: 1
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0
   - name: dead_tree
     sprite: {fileID: 21300000, guid: 1dc1ad3e0b12e5a4a99b5b995305cae0, type: 3}
     decal: 0
     torch: 0
+    flame: {fileID: 0}
     lightColor: {r: 1, g: 0.6, b: 0.28, a: 1}
     scatterWeight: 0.6
   fortressKeep: {fileID: 21300000, guid: 922938c612646854ea0f8e427f6d9c53, type: 3}

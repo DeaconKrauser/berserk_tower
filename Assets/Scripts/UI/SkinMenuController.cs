@@ -56,7 +56,7 @@ public class SkinMenuController : MonoBehaviour
         status = UI.Text(right, "Status", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 112), new Vector2(560, 34), 19, TextAnchor.MiddleCenter, UI.Dim);
         action = UI.Button(right, "Action", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 46), new Vector2(360, 66), "", Act, 24, true, "upgrade");
         var note = UI.Text(transform, "Note", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(360, 30), new Vector2(700, 30), 17, TextAnchor.MiddleCenter, UI.Dim);
-        note.text = "Skins mudam só a aparência do comandante: nenhum atributo é alterado.";
+        note.text = "Cada skin muda a aparência e o poder [Q] do comandante; os atributos são os mesmos.";
         UI.Button(transform, "Back", new Vector2(0, 0), new Vector2(0, 0), new Vector2(40, 36), new Vector2(240, 60), "VOLTAR", () => g.flow.ShowMainMenu(), 24, true);
         Show(CommanderSkinController.Equipped(g.config, g.save));
     }
@@ -86,7 +86,7 @@ public class SkinMenuController : MonoBehaviour
         var data = gm.save.Data;
         essence.text = $"Essência: {data.essence}";
         title.text = shown.displayName.ToUpperInvariant();
-        desc.text = shown.description;
+        desc.text = shown.description + (string.IsNullOrEmpty(shown.powerName) ? "" : $"\n<color=#D6B264>Poder [Q] {shown.powerName}</color> · recarga {shown.powerCooldown:0}s: {shown.powerDescription}");
         bool owned = data.HasSkin(shown), equipped = data.equippedSkin == shown.id;
         status.text = equipped ? "Equipada" : owned ? "Possuída" : $"Bloqueada · {shown.unlockCost} de Essência";
         action.label.text = equipped ? "EQUIPADA" : owned ? "EQUIPAR" : $"DESBLOQUEAR ({shown.unlockCost})";

@@ -38,3 +38,7 @@ MonoBehaviour:
   unlockCost: 150
   unlockedByDefault: 0
   accent: {r: 0.7, g: 0.7, b: 0.8, a: 1}
+  power: 1
+  powerName: Armadura do Abismo
+  powerDescription: "Veste a armadura amaldi\xE7oada e avan\xE7a como um raio sobre at\xE9 6 inimigos seguidos, cortando cada um (atordoa os comuns); a armadura fica 8 s: golpes mais r\xE1pidos e fortes, menos dano recebido."
+  powerCooldown: 40

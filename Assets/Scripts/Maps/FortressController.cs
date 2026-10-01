@@ -22,13 +22,13 @@ public class FortressController : MonoBehaviour
         if (map.fortressTower)
         {
             tower = Gfx.Renderer(transform, "Watchtower", map.fortressTower, new Vector2(-2.1f, 1.7f), Gfx.OrderWorld);
-            Gfx.Shadow(tower.transform, 2.2f);
+            Gfx.Grounding(tower.transform, 1.9f, 3);
         }
         if (map.fortressKeep)
         {
             keep = Gfx.Renderer(transform, "Keep", map.fortressKeep, new Vector2(0.15f, 0.25f), Gfx.OrderWorld);
             keepHome = keep.transform.localPosition;
-            Gfx.Shadow(keep.transform, 3.2f);
+            Gfx.Grounding(keep.transform, 3.0f, 5);
         }
         glow = Gfx.Light(transform, new Vector2(0.1f, 3.4f), new Color(1f, 0.22f, 0.18f), 4.2f, 0.9f);
         glow.gameObject.AddComponent<Flicker>().amount = 0.2f;

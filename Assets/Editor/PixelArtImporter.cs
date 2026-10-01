@@ -21,7 +21,7 @@ public class PixelArtImporter : AssetPostprocessor
         ti.textureCompression = TextureImporterCompression.Uncompressed;
         ti.mipmapEnabled = false;
         ti.alphaIsTransparency = true;
-        ti.isReadable = assetPath.Contains("/Tiles/");
+        ti.isReadable = assetPath.Contains("/Tiles/") || assetPath.EndsWith("_flame.png");   // flames: the map finds their foot
         ti.maxTextureSize = 4096;
 
         var s = new TextureImporterSettings();

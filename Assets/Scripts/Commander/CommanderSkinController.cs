@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Skins only change presentation: the rig prefab (and its light accent). Stats never read the skin.
+// Skins change presentation (rig prefab, light accent) and the [Q] power (CommanderCombat). Stats never read the skin.
 public static class CommanderSkinController
 {
     public static RigView Spawn(Transform parent, CommanderSkinData skin) => SpawnViews(parent, skin).front;

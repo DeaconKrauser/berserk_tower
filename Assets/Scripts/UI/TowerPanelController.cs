@@ -12,7 +12,7 @@ public class TowerPanelController : MonoBehaviour
     RectTransform rt;
     Text title, tier, role, good, labels, values, buff, next;
     Image icon;
-    UI.Btn upgrade, sell;
+    UI.Btn upgrade, sell, target;
     readonly Image[] pips = new Image[4];
 
     public void Build(GameManager g, Battle battle)
@@ -36,6 +36,7 @@ public class TowerPanelController : MonoBehaviour
         tier = UI.Text(transform, "Tier", tl, tl, new Vector2(116, -58), new Vector2(330, 30), 20, TextAnchor.MiddleLeft, UI.Gold);
         for (int i = 0; i < pips.Length; i++)
             pips[i] = UI.Image(transform, "Pip" + i, null, tl, tl, new Vector2(118 + i * 22, -92), new Vector2(16, 16));
+        target = UI.Button(transform, "Target", tl, tl, new Vector2(214, -82), new Vector2(226, 36), "", () => b.placement.selected?.CyclePriority(), 15, true, "ui_select");
         role = UI.Text(transform, "Role", tl, tl, new Vector2(22, -124), new Vector2(416, 50), 17, TextAnchor.UpperLeft, UI.Dim);
         good = UI.Text(transform, "Good", tl, tl, new Vector2(22, -174), new Vector2(416, 30), 18, TextAnchor.UpperLeft, UI.Good);
         labels = UI.Text(transform, "Labels", tl, tl, new Vector2(22, -210), new Vector2(230, 250), 20, TextAnchor.UpperLeft, UI.Dim);
@@ -100,6 +101,9 @@ public class TowerPanelController : MonoBehaviour
             upgrade.button.interactable = false;
         }
         sell.label.text = $"VENDER +{b.placement.SellValue(t)}";
+        bool aims = t.data.kind is TowerKind.Projectile or TowerKind.Chain;
+        target.button.gameObject.SetActive(aims);
+        if (aims) target.label.text = $"ALVO: {TargetPriorityNames.Pt(t.priority).ToUpperInvariant()} [T]";
         sell.button.interactable = !b.over;
     }
 
@@ -136,7 +140,6 @@ public class TowerPanelController : MonoBehaviour
         if (s.executeThreshold > 0) l.Add(("Execução", $"< {s.executeThreshold * 100:0}% HP"));
         if (s.stunChance > 0) l.Add(("Atordoar", $"{s.stunChance * 100:0}% · {s.stunDuration:0.#}s"));
         if (s.trapDurability > 0) l.Add(("Durabilidade", $"{s.trapDurability} pisadas"));
-        if (d.kind != TowerKind.Trap) l.Add(("Prioridade", d.targeting switch { TargetPriority.Strongest => "mais resistente", TargetPriority.Elite => "elites", _ => "mais avançado" }));
         return l;
     }
 

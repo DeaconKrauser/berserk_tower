@@ -64,6 +64,12 @@ public class SmokeTest : MonoBehaviour
             Application.Quit();
             yield break;
         }
+        if (Arg("-scenario", "") == "showcase")
+        {
+            yield return ShowcaseScenario();
+            Application.Quit();
+            yield break;
+        }
 
         yield return Wait(1.0f);
         yield return Shot("alpha_main_menu.png");
@@ -215,6 +221,72 @@ public class SmokeTest : MonoBehaviour
             yield return Shot($"alpha_crowd_{k}.png");
         }
         Log($"crowd worst overlapping pairs={worst} deepest overlap={worstOverlap:0.00} units");
+    }
+
+    // Visual check of one skin + one map: the road, built towers (ballista tracking, grounding), the skin's [Q] power
+    // and the tower panel. -skin <id> picks the skin (unlocked in the smoke save only), -maps <id> the map.
+    IEnumerator ShowcaseScenario()
+    {
+        string skinId = Arg("-skin", "black_swordsman");
+        var sk = gm.config.skins.Find(x => x.id == skinId);
+        if (sk)
+        {
+            if (!gm.save.Data.unlockedSkins.Contains(sk.id)) gm.save.Data.unlockedSkins.Add(sk.id);
+            gm.save.Data.equippedSkin = sk.id;
+        }
+        gm.run.StartRun();
+        var map = gm.config.Map(maps[0]);
+        gm.flow.StartMap(map, map.routes[int.Parse(Arg("-route", "0")) % map.routes.Count]);
+        while (gm.flow.Current != SceneFlow.Screen.Battle || !gm.flow.battle) yield return null;
+        b = gm.flow.battle;
+        b.gold = 99999;
+        b.SetSpeedAutomated(1f);
+        yield return Wait(0.8f);
+        yield return Shot($"show_{map.id}_road.png");
+        foreach (var id in new[] { "ballista", "ballista", "archer", "pyre", "ballista" })
+        {
+            var t = b.config.towers.Find(x => x.id == id);
+            var spot = BestSpot(t);
+            if (spot.HasValue && b.placement.TryBuild(t, spot.Value, automated: true) is TowerController tc) built.Add(tc);
+        }
+        var ballistas = built.Where(x => x.data.id == "ballista").ToList();
+        for (int i = 0; i < ballistas.Count; i++)
+            for (int k = 0; k < i + 1; k++) b.placement.TryUpgrade(ballistas[i], automated: true);
+        var r = b.map.route;
+        // the fight happens on the stretch of road the ballistas cover, so their weapons visibly track it
+        float mid = ballistas.Count > 0 ? Mathf.Clamp(r.Project(0, ballistas[0].Pos, r.Nearest(ballistas[0].Pos).s).s, 4f, r.Length(0) - 1f) : r.Length(0) * 0.55f;
+        var post = r.Position(0, mid, 0) + new Vector2(0, 1.2f);
+        b.commander.transform.position = post;
+        b.commander.MoveTo(post);
+        b.commander.hp = b.commander.maxHp = 1e6f;
+        for (int i = 0; i < 14; i++) b.waves.SpawnChild(b.mapData.roster[i % 2], 0, mid - 3.5f - i * 0.45f, ((i % 3) - 1) * 0.3f);
+        yield return Wait(1.6f);
+        yield return Shot($"show_{map.id}_towers_a.png");
+        yield return Wait(0.9f);
+        yield return Shot($"show_{map.id}_towers_b.png");
+        b.SetSpeedAutomated(6f);
+        while (!b.commander.combat.UltimateReady && !b.over) yield return null;
+        b.SetSpeedAutomated(1f);
+        for (int i = 0; i < 10; i++) b.waves.SpawnChild(b.mapData.roster[i % 2], 0, mid - 1.5f - i * 0.35f, ((i % 3) - 1) * 0.35f);
+        yield return Wait(1.0f);
+        Check(b.commander.combat.UseUltimate(), "poder [Q] disparou");
+        Log($"power {b.commander.combat.PowerName} skin={skinId}");
+        yield return Wait(0.45f);
+        yield return Shot($"show_power_{skinId}_a.png");
+        yield return Wait(0.35f);
+        yield return Shot($"show_power_{skinId}_b.png");
+        yield return Wait(0.6f);
+        yield return Shot($"show_power_{skinId}_c.png");
+        if (ballistas.Count > 0)
+        {
+            b.placement.Select(ballistas[ballistas.Count - 1]);
+            b.CycleTargetAll();
+            b.CycleTargetAll();
+            yield return Wait(0.3f);
+            yield return Shot($"show_{map.id}_panel.png");
+            b.placement.Select(null);
+        }
+        Log($"showcase done errors={errors} towers={b.towers.Count} enemies={b.enemies.Count}");
     }
 
     // Pairs of enemies whose bodies overlap by more than 15% of their summed radii.

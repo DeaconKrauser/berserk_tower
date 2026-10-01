@@ -38,3 +38,7 @@ MonoBehaviour:
   unlockCost: 250
   unlockedByDefault: 0
   accent: {r: 0.65, g: 0.35, b: 1, a: 1}
+  power: 3
+  powerName: Eclipse
+  powerDescription: "Um sol negro explode \xE0 sua volta (raio 3,6): dano m\xE1gico e, por 6 s, maldi\xE7\xE3o (+30% de dano sofrido, \u22126 de armadura) e 45% de lentid\xE3o em todos, chefes inclusive."
+  powerCooldown: 45

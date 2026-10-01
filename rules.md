@@ -62,6 +62,11 @@ Exceção: a **Armadilha de Estacas** só pode ser armada SOBRE a estrada.
 
 ## 6. Torres, inimigos e chefes
 
+Mira: cada torre tem um padrão (balista: mais forte; arqueiros: primeiro à frente…). O botão **TORRES MIRAM** da HUD
+troca todas de uma vez (padrão → primeiro à frente → mais forte, salvo nas opções) e o painel da torre (ou **T**)
+troca só a selecionada. "Mais forte" = maior vida máxima (chefes e elites primeiro). A balista gira a arma e
+acompanha o alvo enquanto ele anda.
+
 - Torres: `Docs/towers.md` (papéis, tiers, preços, efeitos)
 - Inimigos e chefes: `Docs/enemies.md` (HP, armadura, resistências, tags, habilidades)
 - Ondas e rotas: `Docs/maps.md`
@@ -76,9 +81,14 @@ de montante em até 3 inimigos. Segura até 3 inimigos comuns (eles vão até el
 para lutar. A vida aparece na HUD. Atributos permanentes (Força, Vigor, Fúria, Disciplina, Tática, Fé Sombria)
 e skins: `Docs/progression.md`.
 
-**Poder (ultimate) — Fúria Negra [Q]:** recarga 45 s (começa o mapa meio carregado). Golpe giratório de
-montante: 160 de dano físico num raio de 2,4 (escala com Força) e atordoa inimigos comuns por 1,4 s; em seguida
-8 s de fúria: +40% velocidade de ataque, +25% dano e −30% de dano recebido.
+**Poder [Q] — cada skin tem o seu** (começa o mapa meio carregado; a força escala com Força):
+
+| Skin | Poder | Recarga | Efeito |
+|---|---|---|---|
+| Ulric | Fúria Negra | 45 s | golpe giratório: 160 físico em raio 2,4, atordoa comuns 1,4 s; depois 8 s de fúria (+40% vel. de ataque, +25% dano, −30% dano recebido) |
+| Espadachim Negro | Armadura do Abismo | 40 s | veste a armadura (mesma fúria de 8 s) e avança como um raio sobre até 6 inimigos seguidos (60% da força em cada, atordoa comuns 0,5 s) |
+| Veterano Escarlate | Estandarte Escarlate | 50 s | crava um estandarte por 10 s: torres num raio de 4 com +35% dano e +25% vel. de ataque; cura 35% da vida |
+| Cavaleiro do Eclipse | Eclipse | 45 s | explosão mágica (60% da força) em raio 3,6; 6 s de maldição (+30% dano sofrido, −6 armadura) e 45% de lentidão, chefes inclusive |
 
 Ondas: manuais (Espaço/botão) ou automáticas (opção; 12 s de preparação entre ondas a partir da 2ª).
 

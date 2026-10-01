@@ -32,6 +32,8 @@ public class Battle : MonoBehaviour
     public bool over, victory;
     public string endReason;
     public bool commanderSelected;
+    // Target rule the player chose for every tower (HUD); null = each tower's own default. The tower panel overrides one tower.
+    public TargetPriority? targetAll;
     public bool paused;
     public int speedIndex;
     public float elapsed;
@@ -84,6 +86,7 @@ public class Battle : MonoBehaviour
         b.commander.Init(cfg.commander, cstats, skin, route.commanderStart);
 
         b.waves.AutoMode = save != null && save.Data.settings.autoWaves;
+        if (save != null && save.Data.settings.towerTargeting >= 0) b.targetAll = (TargetPriority)save.Data.settings.towerTargeting;
         b.input = go.AddComponent<BattleInput>();
         b.input.Init(b);
         b.ApplyTime();
@@ -236,6 +239,13 @@ public class Battle : MonoBehaviour
         foreach (var t in towers)
             if (t.IsSupport && t.stunLeft <= 0 && Vector2.Distance(t.Pos, p) <= t.stats.auraRadius) h = Mathf.Max(h, t.stats.commanderHealPerSecond);
         return h;
+    }
+
+    // HUD button: default -> first -> strongest -> default. Re-targets every built tower.
+    public void CycleTargetAll()
+    {
+        targetAll = targetAll switch { null => TargetPriority.First, TargetPriority.First => TargetPriority.Strongest, _ => null };
+        foreach (var t in towers) t.priority = targetAll ?? t.data.targeting;
     }
 
     public float TacticsBonusAt(Vector2 p) =>

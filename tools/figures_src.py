@@ -5,7 +5,7 @@
 import numpy as np
 
 import sources
-from pixelkit import depink, figures, key_checker, key_flat, key_magenta, label, load_rgb, trim
+from pixelkit import depink, figures, inpaint, key_checker, key_flat, key_magenta, label, load_rgb, trim
 
 
 def _largest(alpha, boxes):
@@ -41,6 +41,16 @@ def _main_component(rgb, alpha):
     return trim(rgb, alpha & full)
 
 
+def _no_purple(rgb, alpha):
+    """The swordsman is painted in greys, browns and skin tones only: purple left by the magenta key (JPEG halo,
+    pockets the flood fill cannot reach) is repainted from its real neighbours."""
+    r, g, b = (rgb[..., i].astype(np.int32) for i in range(3))
+    purple = alpha & (b > g + 14) & (r > g + 8)
+    if not purple.any():
+        return rgb
+    return inpaint(rgb, alpha & ~purple, alpha, noise=1.5)
+
+
 def figure(name):
     if name == "commander":
         rgb = load_rgb(sources.path("commander_sheet"))
@@ -48,12 +58,10 @@ def figure(name):
     if name == "commander_back":
         rgb = load_rgb(sources.path("commander_sheet"))
         return _pick(rgb, key_magenta(rgb), 2, gap=4)
-    if name == "swordsman":
+    if name in ("swordsman", "swordsman_back"):
         rgb = load_rgb(sources.path("skin_black_swordsman"))
-        return _pick(rgb, key_magenta(rgb), 0)
-    if name == "swordsman_back":
-        rgb = load_rgb(sources.path("skin_black_swordsman"))
-        return _pick(rgb, key_magenta(rgb), 1)
+        r, a = _pick(rgb, key_magenta(rgb), 0 if name == "swordsman" else 1)
+        return _no_purple(r, a), a
     if name == "soldier":
         rgb = load_rgb(sources.path("cursed_soldier"))
         return _main_component(rgb, key_checker(rgb))

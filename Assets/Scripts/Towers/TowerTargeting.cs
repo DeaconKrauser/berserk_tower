@@ -10,8 +10,9 @@ public static class TowerTargeting
     {
         switch (p)
         {
-            case TargetPriority.Strongest:
-                return y.Hp.CompareTo(x.Hp);
+            case TargetPriority.Strongest:                       // the toughest body first (bosses, elites), then the healthiest
+                int m = y.MaxHp.CompareTo(x.MaxHp);
+                return m != 0 ? m : y.Hp.CompareTo(x.Hp);
             case TargetPriority.Elite:
                 int ex = x.IsElite ? 1 : 0, ey = y.IsElite ? 1 : 0;
                 return ex != ey ? ey.CompareTo(ex) : x.movement.Remaining.CompareTo(y.movement.Remaining);

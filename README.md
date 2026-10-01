@@ -13,7 +13,7 @@ comandante, skins e opções são.
 ## Controles
 
 1–7 ou cards: escolher torre · clique: construir (verde válido / vermelho inválido) · botão direito/Esc: cancelar ·
-clique na torre: painel (U melhora, Del vende) · clique no comandante (ou C) e depois no chão: mover — botão
+clique na torre: painel (U melhora, Del vende, T troca o alvo) · clique no comandante (ou C) e depois no chão: mover — botão
 direito move sempre · Espaço: iniciar onda · F ou 1×/2×/4×: velocidade · P/Esc: pausa.
 
 ## Onde está cada coisa
@@ -49,7 +49,7 @@ Inspector, não rode de novo (ou edite os números em `Assets/Editor/ContentBuil
   na estrada nem sobreposto, upgrade desconta, venda devolve o valor, sub-ondas, fim de mapa abre a escolha,
   troca de mapa limpa construções, meta sobrevive ao fechamento, run não sobrevive, skin persiste, chefe entra e
   morre, áudio sem clip não quebra, smoke test só com a flag.
-- Smoke test (só com a flag): `Build/Bastiao.exe -smoketest [-maps map1,map2] [-route N] [-strategy balanced|archers|spam|upgrades] [-speed 4] [-noshots] [-savepath arquivo] [-scenario crowd]`.
+- Smoke test (só com a flag): `Build/Bastiao.exe -smoketest [-maps map1,map2] [-route N] [-strategy balanced|archers|spam|upgrades] [-speed 4] [-noshots] [-savepath arquivo] [-scenario crowd|showcase] [-skin id]`.
   Passa pelos menus, joga a run sozinho e grava screenshots em `Build/Bastiao_Data/`. Usa um save próprio
   (`smoke_meta.json`), nunca o do jogador. Sem `-smoketest`, nenhuma ação automática existe: os pontos de
   entrada automáticos passam por `Automation.Require` e recusam com erro.

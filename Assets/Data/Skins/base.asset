@@ -38,3 +38,7 @@ MonoBehaviour:
   unlockCost: 0
   unlockedByDefault: 1
   accent: {r: 0.95, g: 0.64, b: 0.23, a: 1}
+  power: 0
+  powerName: "F\xFAria Negra"
+  powerDescription: "Gira a montante em volta de si: dano pesado em \xE1rea e atordoa inimigos comuns; depois, 8 s de f\xFAria (golpes mais r\xE1pidos e fortes, menos dano recebido)."
+  powerCooldown: 45

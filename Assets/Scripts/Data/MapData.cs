@@ -8,6 +8,7 @@ public class PropSprite
     public Sprite sprite;
     [Tooltip("Fica deitado no chão (não é ordenado por Y, não bloqueia)")] public bool decal;
     public bool torch;
+    [Tooltip("Só a chama da tocha (mesma tela do sprite): animada no jogo")] public Sprite flame;
     public Color lightColor = new(1f, 0.6f, 0.28f);
     [Tooltip("Peso na decoração aleatória (0 = só posicionado à mão)")] public float scatterWeight;
 }
@@ -42,6 +43,7 @@ public class MapData : ScriptableObject
     public Sprite[] waterTiles;
     public Sprite[] bridgeTiles;
     [Tooltip("Cor da borda irregular da estrada")] public Color roadRim = new(0.12f, 0.1f, 0.1f);
+    [Tooltip("Calçamento: pedras contínuas com as cores de roadTiles. Lama: terreno contínuo com poças")] public RoadStyle roadStyle;
     public List<PropSprite> props = new();
     public Sprite fortressKeep;
     public Sprite fortressTower;

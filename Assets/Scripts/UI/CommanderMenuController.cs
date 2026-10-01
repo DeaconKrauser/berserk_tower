@@ -81,8 +81,9 @@ public class CommanderMenuController : MonoBehaviour
         }
         var s = CommanderProgression.Compute(gm.config.commander, data);
         var cd = gm.config.commander;
+        var sk = CommanderSkinController.Equipped(gm.config, gm.save);
         summary.text = $"HP {s.maxHp:0} · dano {s.damage:0} · {1 / s.attackInterval:0.00} golpes/s · armadura {s.armor:0.#} · regeneração {s.regen:0.#}/s · tática +{s.tacticsBonus * 100:0}%\n" +
-                       $"<color=#D6B264>Poder [Q] {cd.ultimateName}:</color> {s.ultimateDamage:0} de dano em área, recarga {cd.ultimateCooldown:0}s";
+                       $"<color=#D6B264>Poder [Q] {CommanderCombat.PowerNameOf(sk, cd)}</color> ({(sk ? sk.displayName : cd.displayName)}): força {s.ultimateDamage:0}, recarga {CommanderCombat.CooldownOf(sk, cd):0}s";
     }
 }
 

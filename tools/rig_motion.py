@@ -458,3 +458,141 @@ def commander(p):
     c["_root"] = {"scale": track((0, (1, 1)), (0.12, (1.06, 0.92)), (0.3, (0.96, 1.05)), (0.36, (1.08, 0.94)), (0.5, (1, 1)), (L, (1, 1)))}
     clips["Special"] = {"length": L, "loop": False, "curves": c, "impact": 0.35}
     return clips
+
+
+# ---------------------------------------------------------------- Guardião do Pântano (boss): heavy, slow, deliberate
+
+def guardian(p):
+    """Huge armoured body: weight first. Idle breathes and the root arm creeps; the walk plants each foot with a
+    heavy drop; the halberd attack goes behind and over him and chops down in front (impact at 0.62 of 1.0 s)."""
+    clips = humanoid(p)
+    P = lambda k: p.get(k)
+
+    T = 2.4
+    c = {}
+    add(c, P("torso"), "pos", track((0, (0, 0)), (T * 0.5, (0, 1.5)), (T, (0, 0))))
+    add(c, P("torso"), "rot", wave(T, 1.2, 0.0))
+    add(c, P("head"), "rot", wave(T, 1.6, 0.2))
+    add(c, P("head"), "pos", track((0, (0, 0)), (T * 0.55, (0, 1.5)), (T, (0, 0))))
+    add(c, P("armB"), "rot", [[round(T * i / 12, 4), round(4 * math.sin(2 * math.pi * i / 12) + 1.5 * math.sin(6 * math.pi * i / 12 + 0.7), 3)] for i in range(13)])
+    add(c, P("armF"), "rot", wave(T, 2.0, 0.35))
+    add(c, P("weapon"), "rot", wave(T, 1.5, 0.6))
+    add(c, P("skirt"), "rot", wave(T, 2.0, 0.5))
+    clips["Idle"] = {"length": T, "loop": True, "curves": c}
+
+    T = 1.25
+    A = 20
+    c = {}
+    add(c, P("legF"), "rot", keys(T, [A, A * 0.3, -A * 0.9, -A * 0.25, A * 0.55, A]))
+    add(c, P("legB"), "rot", keys(T, [-A * 0.9, -A * 0.25, A * 0.55, A, A * 0.3, -A * 0.9]))
+    add(c, P("legF"), "pos", keys(T, [(0, 0), (0, 0), (0, 0), (0, 3), (0, 2), (0, 0)]))
+    add(c, P("legB"), "pos", keys(T, [(0, 0), (0, 3), (0, 2), (0, 0), (0, 0), (0, 0)]))
+    # heavy drop at each footfall, a slight sway from side to side
+    add(c, P("hips"), "pos", [[round(T * i / 8, 4), round(0.8 * math.sin(2 * math.pi * i / 8), 3), round(3.0 * abs(math.sin(2 * math.pi * i / 8)) ** 0.7, 3)] for i in range(9)])
+    add(c, P("torso"), "rot", wave(T, 2.0, 0.25, -2))
+    add(c, P("head"), "rot", wave(T, 1.5, 0.75, 1))
+    add(c, P("armB"), "rot", wave(T, 9, 0.5))
+    add(c, P("armF"), "rot", wave(T, 5, 0.0))
+    add(c, P("weapon"), "rot", wave(T, 3, 0.2))
+    add(c, P("skirt"), "rot", wave(T, 3, 0.1))
+    clips["Walk"] = {"length": T, "loop": True, "curves": c}
+
+    L = 1.0
+    c = {}
+    add(c, P("armF"), "rot", track((0, 0), (0.12, 14), (0.4, -140), (0.5, -160), (0.62, -222), (0.72, -232), (0.86, -320), (L, -360)))
+    add(c, P("weapon"), "rot", track((0, 0), (0.12, 3), (0.4, -15), (0.5, -18), (0.62, 4), (0.72, 2), (L, 0)))
+    add(c, P("torso"), "rot", track((0, 0), (0.12, -3), (0.4, 8), (0.5, 9), (0.62, -12), (0.72, -12), (0.85, -5), (L, 0)))
+    add(c, P("head"), "rot", track((0, 0), (0.4, 6), (0.62, -7), (L, 0)))
+    add(c, P("hips"), "pos", track((0, (0, 0)), (0.12, (0.5, -1.5)), (0.4, (-2, 0.5)), (0.5, (-2, 0)), (0.62, (5, -3.5)), (0.72, (5, -3)), (0.85, (2, -1)), (L, (0, 0))))
+    add(c, P("legF"), "rot", track((0, 0), (0.4, -6), (0.62, 14), (0.72, 14), (L, 0)))
+    add(c, P("legB"), "rot", track((0, 0), (0.4, 6), (0.62, -12), (0.72, -12), (L, 0)))
+    add(c, P("armB"), "rot", track((0, 0), (0.12, -5), (0.4, 18), (0.62, -24), (0.72, -20), (L, 0)))
+    add(c, P("skirt"), "rot", track((0, 0), (0.4, -3), (0.62, 6), (L, 0)))
+    c["_root"] = {"scale": track((0, (1, 1)), (0.5, (0.98, 1.03)), (0.62, (1.05, 0.95)), (0.75, (1, 1)), (L, (1, 1)))}
+    clips["Attack"] = {"length": L, "loop": False, "curves": c, "impact": 0.62}
+    return clips
+
+
+# ---------------------------------------------------------------- Espadachim Negro: the blade lives on his back
+
+def swordsman(p):
+    """The greatsword hangs across his back (weapon is a child of armF, hilt over the shoulder). Every swing is one
+    full clockwise turn of the arm: the blade leaves the back, goes behind and over his head, comes down in front
+    (impact at 0.42 s of 0.8 s, like CommanderCombat expects) and ends where it started, back on his back."""
+    clips = humanoid(p)
+    P = lambda k: p.get(k)
+
+    # idle: slow breath, cloak and blade settle (no root bounce)
+    T = 2.0
+    c = {}
+    add(c, P("torso"), "pos", track((0, (0, 0)), (T * 0.5, (0, 1)), (T, (0, 0))))
+    add(c, P("torso"), "rot", wave(T, 0.7, 0.0))
+    add(c, P("head"), "rot", wave(T, 1.4, 0.15))
+    add(c, P("head"), "pos", track((0, (0, 0)), (T * 0.55, (0, 1)), (T, (0, 0))))
+    add(c, P("armF"), "rot", wave(T, 1.5, 0.3))
+    add(c, P("armB"), "rot", wave(T, 2.0, 0.7))
+    add(c, P("weapon"), "rot", wave(T, 0.8, 0.8))
+    add(c, P("skirt"), "rot", wave(T, 1.0, 0.5))
+    add(c, P("cape"), "rot", [[round(T * i / 16, 4), round(2.5 * math.sin(2 * math.pi * i / 16) + 1.0 * math.sin(4 * math.pi * i / 16 + 1), 3)] for i in range(17)])
+    clips["Idle"] = {"length": T, "loop": True, "curves": c}
+
+    # walk: heavy steps, the free arm swings, the arm under the blade barely moves
+    T = 0.9
+    A = 24
+    c = {}
+    add(c, P("legF"), "rot", keys(T, [A, A * 0.3, -A * 0.9, -A * 0.25, A * 0.55, A]))
+    add(c, P("legB"), "rot", keys(T, [-A * 0.9, -A * 0.25, A * 0.55, A, A * 0.3, -A * 0.9]))
+    add(c, P("legF"), "pos", keys(T, [(0, 0), (0, 0), (0, 0), (0, 2), (0, 1.2), (0, 0)]))
+    add(c, P("legB"), "pos", keys(T, [(0, 0), (0, 2), (0, 1.2), (0, 0), (0, 0), (0, 0)]))
+    add(c, P("hips"), "pos", [[round(T * i / 8, 4), round(0.4 * math.sin(2 * math.pi * i / 8), 3), round(1.6 * abs(math.sin(2 * math.pi * i / 8)), 3)] for i in range(9)])
+    add(c, P("torso"), "rot", wave(T, 1.5, 0.25, -3))
+    add(c, P("head"), "rot", wave(T, 1.0, 0.75, 1.5))
+    add(c, P("armB"), "rot", wave(T, 14, 0.5))
+    add(c, P("armF"), "rot", wave(T, 3, 0.0))
+    add(c, P("weapon"), "rot", wave(T, 1.5, 0.2))
+    add(c, P("skirt"), "rot", wave(T, 3, 0.1))
+    add(c, P("cape"), "rot", [[round(T * i / 8, 4), round(5 + 4 * math.sin(2 * math.pi * (i / 8 - 0.2)), 3)] for i in range(9)])
+    clips["Walk"] = {"length": T, "loop": True, "curves": c}
+
+    # attack: dip forward -> blade swung back and overhead -> coil -> cleave down in front -> follow-through -> recover
+    L = 0.8
+    c = {}
+    add(c, P("armF"), "rot", track((0, 0), (0.1, 6), (0.2, -70), (0.28, -165), (0.34, -195), (0.42, -322), (0.52, -334), (0.66, -350), (L, -360)))
+    add(c, P("weapon"), "rot", track((0, 0), (0.1, 2), (0.28, -22), (0.34, -28), (0.42, -8), (0.52, -4), (L, 0)))
+    add(c, P("torso"), "rot", track((0, 0), (0.1, -3), (0.28, 7), (0.34, 9), (0.42, -13), (0.52, -14), (0.66, -6), (L, 0)))
+    add(c, P("head"), "rot", track((0, 0), (0.1, -2), (0.3, 5), (0.42, -6), (0.6, -3), (L, 0)))
+    add(c, P("hips"), "pos", track((0, (0, 0)), (0.1, (0.5, -1)), (0.28, (-2, 0)), (0.34, (-2, -0.5)), (0.42, (4, -2.5)), (0.52, (4, -2)), (0.66, (2, -1)), (L, (0, 0))))
+    add(c, P("legF"), "rot", track((0, 0), (0.28, -6), (0.42, 14), (0.52, 14), (L, 0)))
+    add(c, P("legB"), "rot", track((0, 0), (0.28, 6), (0.42, -12), (0.52, -12), (L, 0)))
+    add(c, P("armB"), "rot", track((0, 0), (0.1, -6), (0.28, 22), (0.42, -28), (0.52, -24), (L, 0)))
+    add(c, P("cape"), "rot", track((0, 0), (0.28, -8), (0.42, 5), (0.5, 13), (0.65, 6), (L, 0)))
+    add(c, P("skirt"), "rot", track((0, 0), (0.3, -3), (0.42, 6), (L, 0)))
+    c["_root"] = {"scale": track((0, (1, 1)), (0.34, (0.98, 1.03)), (0.42, (1.04, 0.96)), (0.55, (1, 1)), (L, (1, 1)))}
+    clips["Attack"] = {"length": L, "loop": False, "curves": c, "impact": 0.42}
+
+    # Armadura do Abismo: hunches as the armour closes over him, then rises with the blade pulled back for the dash
+    L = 0.6
+    c = {}
+    add(c, P("hips"), "pos", track((0, (0, 0)), (0.15, (0, -3)), (0.3, (0, -3.5)), (0.42, (1, 1)), (L, (0, 0))))
+    add(c, P("torso"), "rot", track((0, 0), (0.15, -12), (0.3, -14), (0.42, 6), (L, 0)))
+    add(c, P("head"), "rot", track((0, 0), (0.15, -10), (0.3, -12), (0.42, 10), (L, 0)))
+    add(c, P("armF"), "rot", track((0, 0), (0.15, 25), (0.3, 30), (0.42, -40), (L, 0)))
+    add(c, P("armB"), "rot", track((0, 0), (0.15, 30), (0.3, 35), (0.42, -20), (L, 0)))
+    add(c, P("weapon"), "rot", track((0, 0), (0.3, 6), (0.42, -10), (L, 0)))
+    add(c, P("legF"), "rot", track((0, 0), (0.15, 10), (0.3, 12), (0.42, -4), (L, 0)))
+    add(c, P("legB"), "rot", track((0, 0), (0.15, -10), (0.3, -12), (0.42, 4), (L, 0)))
+    add(c, P("cape"), "rot", track((0, 0), (0.3, 10), (0.42, -12), (L, 0)))
+    c["_root"] = {"scale": track((0, (1, 1)), (0.15, (1.06, 0.92)), (0.3, (1.07, 0.9)), (0.42, (0.95, 1.07)), (0.52, (1, 1)), (L, (1, 1)))}
+    clips["Special"] = {"length": L, "loop": False, "curves": c, "impact": 0.35}
+
+    # hit: short recoil; the blade stays on his back
+    L = 0.3
+    c = {}
+    add(c, P("torso"), "rot", track((0, 0), (0.06, 9), (0.18, 3), (L, 0)))
+    add(c, P("head"), "rot", track((0, 0), (0.07, 8), (0.2, 2), (L, 0)))
+    add(c, P("hips"), "pos", track((0, (0, 0)), (0.06, (-2.5, 0)), (L, (0, 0))))
+    add(c, P("armF"), "rot", track((0, 0), (0.07, 5), (L, 0)))
+    add(c, P("armB"), "rot", track((0, 0), (0.07, -12), (L, 0)))
+    add(c, P("cape"), "rot", track((0, 0), (0.08, -6), (L, 0)))
+    clips["Hit"] = {"length": L, "loop": False, "curves": c}
+    return clips

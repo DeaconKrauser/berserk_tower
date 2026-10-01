@@ -130,7 +130,6 @@ public class MapController : MonoBehaviour
         var ground = Layer(grid, "Ground", Gfx.OrderGround);
         var painted = Layer(grid, "Road", Gfx.OrderRoad);
         bool periodicGround = map.groundTiles != null && map.groundTiles.Length == 9;
-        bool periodicRoad = map.roadTiles != null && map.roadTiles.Length == 9;
         var tileCache = new Dictionary<Sprite, Tile>();
         Tile T(Sprite s) => tileCache.TryGetValue(s, out var t) ? t : tileCache[s] = TileOf(s);
 
@@ -153,6 +152,8 @@ public class MapController : MonoBehaviour
                 if (near || zone) cells.Add(new Vector2Int(x, y));
             }
 
+        BuildRoadPalette();
+
         // One atlas texture holds every painted cell (pixel-exact edges, then sliced back into Tiles).
         int perRow = 32, rows = Mathf.CeilToInt(cells.Count / (float)perRow);
         var atlas = new Texture2D(perRow * TilePx, Mathf.Max(1, rows) * TilePx, TextureFormat.RGBA32, false)
@@ -164,9 +165,6 @@ public class MapController : MonoBehaviour
         {
             var cell = cells[i];
             var groundPx = Pixels(ground.GetSprite(new Vector3Int(cell.x, cell.y, 0)));
-            var roadPx = Pixels(Pick(map.roadTiles, cell.x, cell.y, periodicRoad));
-            var roadAccent = map.roadAccentTiles != null && map.roadAccentTiles.Length > 0 && Hash(cell.x, cell.y, 3) % 100 < 18
-                ? Pixels(Pick(map.roadAccentTiles, cell.x, cell.y, false)) : null;
             var waterPx = map.waterTiles != null && map.waterTiles.Length > 0 ? Pixels(Pick(map.waterTiles, cell.x, cell.y, false)) : null;
             var bridgePx = map.bridgeTiles != null && map.bridgeTiles.Length > 0 ? Pixels(Pick(map.bridgeTiles, cell.x, cell.y, false)) : null;
             bool any = false;
@@ -174,27 +172,20 @@ public class MapController : MonoBehaviour
                 for (int px = 0; px < TilePx; px++)
                 {
                     float wx = cell.x + (px + 0.5f) / TilePx, wy = cell.y + (py + 0.5f) / TilePx;
-                    int k = py * TilePx + px;
-                    float d = route.DistanceToRoad(new Vector2(wx, wy)) + EdgeNoise(wx, wy);
+                    int k = py * TilePx + px, gx = cell.x * TilePx + px, gy = cell.y * TilePx + py;
                     float depth = -1;
                     bool water = waterPx != null && InWater(wx, wy, out depth);
                     Color32 o = new(0, 0, 0, 0);
-                    if (d < hw)
-                    {
-                        if (water && bridgePx != null) o = bridgePx[k];
-                        else
-                        {
-                            o = roadAccent != null && d < hw - 0.25f ? roadAccent[k] : roadPx[k];
-                            if (d > hw - 0.07f) o = Mul(o, 0.62f);                         // worn stone edge
-                        }
-                    }
+                    if (RoadAt(gx, gy, out var road))
+                        o = water && bridgePx != null ? bridgePx[k] : road;
                     else if (water)
                     {
                         o = waterPx[k];
                         if (depth < 0.12f) o = Mul(Blend(o, groundPx[k], 0.35f), 0.55f);   // muddy bank
                     }
-                    else if (d < hw + 0.11f)
-                        o = Mul(groundPx[k], 0.5f + 0.25f * ((px * 7 + py * 3) % 5 == 0 ? 1 : 0));   // dark gutter with grit
+                    else if (route.DistanceToRoad(new Vector2(wx, wy)) < hw + RoadOverhang + 0.12f &&
+                             (RoadAt(gx + 1, gy, out _) || RoadAt(gx - 1, gy, out _) || RoadAt(gx, gy + 1, out _) || RoadAt(gx, gy - 1, out _)))
+                        o = Mul(groundPx[k], 0.45f + 0.2f * ((px * 7 + py * 3) % 5 == 0 ? 1 : 0));   // dark gutter with grit
                     else
                     {
                         float cursed = ZoneTint(wx, wy, ZoneKind.Cursed), grave = ZoneTint(wx, wy, ZoneKind.Graveyard);
@@ -215,6 +206,136 @@ public class MapController : MonoBehaviour
             painted.SetTile(new Vector3Int(cell.x, cell.y, 0), TileOf(sprite));
         }
         atlas.Apply();
+    }
+
+    // ---------------------------------------------------------------- road surface
+    // The road is painted pixel by pixel in world space, so it is one continuous surface along any curve (no repeated
+    // tile blocks, no seams). Its colours and texture come from the delivered road tiles (roadTiles): a luminance ramp
+    // of their palette plus their own stone texture sampled inside each stone.
+
+    public const float RoadOverhang = 0.14f;      // how far whole edge stones may reach past the logical road edge
+    const int StoneCell = 11;                     // cobble size in pixels (jittered grid)
+    Color32[] roadRamp;                           // road tile colours sorted dark -> light
+    float rampMid, rampLow;
+
+    void BuildRoadPalette()
+    {
+        var all = new List<Color32>();
+        if (map.roadTiles != null)
+            foreach (var t in map.roadTiles)
+                if (t) all.AddRange(Pixels(t));
+        if (all.Count == 0) all.Add(new Color32(90, 84, 88, 255));
+        // the distinct colours of the art, dark -> light: every step of the ramp is a real colour of the tiles
+        var distinct = new HashSet<Color32>(all);
+        var ramp = new List<Color32>(distinct);
+        ramp.Sort((a, b) => Lum(a).CompareTo(Lum(b)));
+        roadRamp = ramp.ToArray();
+        all.Sort((a, b) => Lum(a).CompareTo(Lum(b)));
+        rampMid = Lum(all[all.Count * 6 / 10]);
+        rampLow = Lum(all[all.Count * 3 / 10]);
+    }
+
+    static float Lum(Color32 c) => (c.r * 0.3f + c.g * 0.59f + c.b * 0.11f) / 255f;
+
+    Color32 Ramp(float t) => roadRamp[Mathf.Clamp(Mathf.RoundToInt(t * (roadRamp.Length - 1)), 0, roadRamp.Length - 1)];
+
+    static float H01(int x, int y, int salt) => Hash(x, y, salt) % 10007u / 10007f;
+
+    static int FloorDiv(int a, int b) => a >= 0 ? a / b : (a - b + 1) / b;
+
+    static int Mod(int a, int m) => ((a % m) + m) % m;
+
+    // Road colour at world pixel (gx, gy); false off the road.
+    bool RoadAt(int gx, int gy, out Color32 c)
+    {
+        float dl = route.DistanceToRoad(new Vector2((gx + 0.5f) / TilePx, (gy + 0.5f) / TilePx));
+        c = default;
+        if (dl > route.halfWidth + RoadOverhang) return false;
+        return map.roadStyle == RoadStyle.Mud ? Mud(gx, gy, dl, out c) : Cobble(gx, gy, out c);
+    }
+
+    // Irregular flagstones (Voronoi on a jittered grid, squashed for the 3/4 view) with mortar joints, a lit upper-left
+    // bevel and a shaded lower-right one, like the delivered cobble. The edge is made of whole stones.
+    bool Cobble(int gx, int gy, out Color32 c)
+    {
+        c = default;
+        int cx = FloorDiv(gx, StoneCell), cy = FloorDiv(gy, StoneCell);
+        float f1 = 1e9f, f2 = 1e9f;
+        Vector2 centre = default;
+        uint id = 0;
+        for (int j = -1; j <= 1; j++)
+            for (int i = -1; i <= 1; i++)
+            {
+                int sx = cx + i, sy = cy + j;
+                float fx = (sx + 0.15f + 0.7f * H01(sx, sy, 11)) * StoneCell, fy = (sy + 0.15f + 0.7f * H01(sx, sy, 12)) * StoneCell;
+                float dx = gx + 0.5f - fx, dy = (gy + 0.5f - fy) * 1.3f, dd = Mathf.Sqrt(dx * dx + dy * dy);
+                if (dd < f1)
+                {
+                    f2 = f1;
+                    f1 = dd;
+                    centre = new Vector2(fx, fy);
+                    id = Hash(sx, sy, 13);
+                }
+                else if (dd < f2) f2 = dd;
+            }
+        float hw = route.halfWidth, stoneRoad = route.DistanceToRoad(centre / TilePx);
+        if (stoneRoad > hw - 0.04f) return false;
+        float joint = f2 - f1;                                                    // ~2x the distance to the stone's edge, in px
+        if (joint < 1.5f)
+        {
+            c = Ramp(joint < 0.7f ? 0f : 0.1f);                                  // mortar
+            return true;
+        }
+        // stone body in the upper-middle of the ramp, each stone its own shade; lit from the upper left
+        float t = 0.58f + 0.16f * (id % 97 / 97f);
+        if (stoneRoad > hw - 0.34f) t -= 0.1f;                                    // sunken, worn edge stones
+        var fromCentre = new Vector2(gx + 0.5f, gy + 0.5f) - centre;
+        t -= Mathf.Clamp(-fromCentre.y / StoneCell, -0.5f, 0.5f) * 0.12f;         // lower half a little darker
+        if (joint < 4.4f)
+        {
+            float lit = Vector2.Dot(fromCentre.normalized, new Vector2(-0.6f, 0.8f));   // rim facing the light
+            t += lit > 0.25f ? 0.26f : lit < -0.25f ? -0.26f : 0;
+        }
+        else if (joint < 6.4f && Vector2.Dot(fromCentre.normalized, new Vector2(-0.6f, 0.8f)) < -0.4f) t -= 0.12f;
+        // the delivered stone texture, sampled stone-locally (each stone shows a different patch of the tiles)
+        if (map.roadTiles != null && map.roadTiles.Length == 9)
+        {
+            int u = Mod(gx - (int)centre.x + (int)(id & 63), 3 * TilePx), v = Mod(gy - (int)centre.y + (int)((id >> 6) & 63), 3 * TilePx);
+            var tile = map.roadTiles[(2 - v / TilePx) * 3 + u / TilePx];
+            if (tile)
+            {
+                float l = Lum(Pixels(tile)[v % TilePx * TilePx + u % TilePx]);
+                if (l > rampLow) t += (l - rampMid) * 1.6f;
+            }
+        }
+        if (H01(gx, gy, 14) < 0.012f) t -= 0.25f;                                 // pits and chips
+        c = Ramp(Mathf.Clamp01(t));
+        return true;
+    }
+
+    // Continuous swamp mud built like the delivered mud tiles: olive-brown base, dark puddles with a black rim and
+    // moss specks, light-green moss blobs; a slightly ragged edge and a trampled darker margin. Colours are picked
+    // from the tiles' own palette (dark -> light ramp).
+    bool Mud(int gx, int gy, float dl, out Color32 c)
+    {
+        c = default;
+        float hw = route.halfWidth;
+        float edge = hw + (Mathf.PerlinNoise(gx * 0.05f + 3.1f, gy * 0.05f + 11.7f) - 0.5f) * 0.22f;
+        if (dl > edge) return false;
+        float low = Mathf.PerlinNoise(gx * 0.04f + 7.3f, gy * 0.055f + 3.9f), high = Mathf.PerlinNoise(gx * 0.23f + 1.7f, gy * 0.29f + 5.2f);
+        float puddle = Mathf.PerlinNoise(gx * 0.035f + 40.2f, gy * 0.05f + 17.6f) + (high - 0.5f) * 0.08f;
+        float t;
+        if (dl < hw - 0.12f && puddle < 0.27f)
+            t = puddle > 0.25f ? 0.1f : high > 0.78f ? 0.95f : puddle < 0.19f ? 0.14f : 0.35f;   // rim, moss afloat, deep, water
+        else
+        {
+            t = 0.76f + low * 0.12f;                                                   // olive mud
+            if (high > 0.74f) t = high > 0.8f ? 1f : 0.95f;                            // moss blobs
+            else if (high < 0.22f) t -= 0.12f;                                         // wet pockets
+            if (dl > edge - 0.09f) t -= 0.1f;                                          // trampled margin
+        }
+        c = Ramp(Mathf.Clamp01(t));
+        return true;
     }
 
     static Color32 Mul(Color32 c, float k, byte a = 255) => new((byte)(c.r * k), (byte)(c.g * k), (byte)(c.b * k), a);
@@ -241,6 +362,7 @@ public class MapController : MonoBehaviour
             Gfx.Shadow(sr.transform, Mathf.Min(p.sprite.bounds.size.x * 0.75f, 2.6f));
             if (block) blockers.Add((at, blockRadius > 0 ? blockRadius : Mathf.Clamp(p.sprite.bounds.size.x * 0.32f, 0.25f, 1.4f), name));
         }
+        if (p.flame) TorchFlame.Attach(sr.transform, p.flame, flip);
         if (p.torch)
         {
             var l = Gfx.Light(sr.transform, new Vector2(0, p.sprite.bounds.size.y * 0.85f), p.lightColor, 3.0f, 1.05f);

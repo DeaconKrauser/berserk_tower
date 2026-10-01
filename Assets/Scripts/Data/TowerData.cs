@@ -81,6 +81,14 @@ public class TowerData : ScriptableObject
     public string impactSfx;
     [Header("Tier 1")] public TowerStats stats;
     [Tooltip("Tiers 2, 3 e 4 (caminho de upgrade)")] public List<TowerUpgradeData> upgrades = new();
+    [Header("Arma que gira para mirar (opcional)")]
+    [Tooltip("Corpo sem a arma, um por tier (vazio = a torre não gira)")] public Sprite[] turretBase;
+    [Tooltip("Só a arma, mesma tela do corpo, um por tier")] public Sprite[] turretArm;
+    [Tooltip("Eixo da arma em (u, v) do sprite: u da esquerda, v do topo, um por tier")] public Vector2[] turretMount;
+    [Tooltip("Direção para onde a arma aponta no desenho (graus, 0 = direita, anti-horário)")] public float turretRestAngle = 195f;
+    [Tooltip("Quanto a arma pode girar para cada lado a partir do desenho (graus)")] public float turretMaxTurn = 55f;
+
+    public bool HasTurret(int tier) => turretArm != null && tier >= 1 && tier <= turretArm.Length && turretArm[tier - 1];
 
     public int MaxTier => upgrades.Count + 1;
 

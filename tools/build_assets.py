@@ -17,7 +17,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 import sources
-from pixelkit import (VOID, add_outline, area_downscale, bbox, figures, from_image, key_checker, key_flat,
+from pixelkit import (VOID, label, add_outline, area_downscale, bbox, figures, from_image, key_checker, key_flat,
                       key_magenta, kmeans_palette, load_rgb, nn_upscale, remove_specks, scale_to_height, to_image, trim)
 
 ROOT = sources.ROOT
@@ -152,7 +152,33 @@ def build_towers():
             save_generated(r, a, "Towers", f"{key}_t{tier}")
             im = save(scaled(r, a, scale), "Towers", f"{key}_t{tier}.png")
             sheet("towers", im)
+            if key in TURRETS:
+                split_turret(im, key, tier)
             print(f"tower {key} t{tier}: {im.size}")
+
+
+# Towers whose weapon turns to aim: everything above the cut line (v, from the top of the finished sprite) is the
+# weapon, the rest is the fixed body. Same numbers in Assets/Editor/ContentBuilder.cs (turretMount).
+TURRETS = {"ballista": {1: 0.345, 2: 0.36, 3: 0.325, 4: 0.37}}
+
+
+def split_turret(im, key, tier):
+    """Splits the finished pixel sprite by rows (no re-scaling, so both parts keep the exact pixels and outline)."""
+    a = np.asarray(im.convert("RGBA")).copy()
+    cut_row = round(TURRETS[key][tier] * a.shape[0])
+    below = np.zeros(a.shape[:2], bool)
+    below[cut_row:] = True
+    # bow tips and bolt heads that dip under the line are loose islands of the body: they belong to the weapon
+    lab, n = label((a[..., 3] > 0) & below)
+    if n > 1:
+        sizes = np.bincount(lab.ravel())
+        sizes[0] = 0
+        below &= lab == np.argmax(sizes)
+    arm, base = a.copy(), a.copy()
+    arm[below, 3] = 0
+    base[~below, 3] = 0
+    save(Image.fromarray(arm), "Towers", f"{key}_t{tier}_arm.png")
+    save(Image.fromarray(base), "Towers", f"{key}_t{tier}_base.png")
 
 
 # ---------------------------------------------------------------- tiles
@@ -334,10 +360,43 @@ def build_props():
         if name == "slime_pool":                     # include its droplets
             box = (box[0] - 40, box[1] - 40, box[2] + 40, box[3] + 40)
         r, a = cut(rgb, alpha, box)
+        if name.startswith("bonepile"):              # drawn on a square mud tile: keep an organic patch, not the square
+            H, W = a.shape
+            a = a & noisy_ellipse(a.shape, W / 2, H * 0.52, W * 0.47, H * 0.44, seed=len(name) + int(name[-1]), amp=0.1)
         save_generated(r, a, "Props", name)
         decal = name in ("bonepile_0", "bonepile_1", "slime_pool")
         im = save(scaled(r, a, heights[name] / r.shape[0], outline=not decal), "Sprites", "Props", "Map2", f"{name}.png")
         sheet("props", im)
+    for name in ("torch_0", "torch_1", "torch_post"):
+        split_flame(name)
+
+
+def split_flame(name):
+    """Torches: the flame becomes its own sprite (same canvas) so the game can animate it; pink key-colour haze
+    over the flame is dropped. Flame = warm bright pixels in the top half plus the outline pixels touching them."""
+    path = out("Sprites", "Props", "Map1", f"{name}.png")
+    a = np.asarray(Image.open(path).convert("RGBA")).astype(np.int16)
+    r, g, b, al = a[..., 0], a[..., 1], a[..., 2], a[..., 3] > 0
+    top = np.zeros(al.shape, bool)
+    top[:al.shape[0] // 2] = True
+    pink = al & top & (r > 120) & (b > 70) & (g < 120) & (b > g + 20)
+    fire = al & top & ~pink & (r > 150) & (g > 60) & (r - b > 60)
+    rb = int(np.nonzero(fire.any(axis=1))[0].max())                 # lowest row with fire: the flame's foot in the cup
+    near = fire.copy()
+    for _ in range(2):
+        grow = np.zeros_like(near)
+        grow[1:] |= near[:-1]; grow[:-1] |= near[1:]; grow[:, 1:] |= near[:, :-1]; grow[:, :-1] |= near[:, 1:]
+        near |= grow
+    above = np.zeros(al.shape, bool)
+    above[:rb - 1] = True
+    stray = al & above & (r + g + b < 160) & ~near                  # outline of the dropped haze, far from any fire
+    flame = (al & above & ~pink & ~stray) | fire                    # everything over the cup, plus the fire inside it
+    base, fl = a.copy(), a.copy()
+    base[flame | pink | stray, 3] = 0
+    fl[~flame, 3] = 0
+    Image.fromarray(base.astype(np.uint8)).save(path)
+    Image.fromarray(fl.astype(np.uint8)).save(out("Sprites", "Props", "Map1", f"{name}_flame.png"))
+    print(f"flame {name}: {int(flame.sum())} px, pink removed {int(pink.sum())}")
 
 
 # ---------------------------------------------------------------- UI

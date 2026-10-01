@@ -38,3 +38,7 @@ MonoBehaviour:
   unlockCost: 100
   unlockedByDefault: 0
   accent: {r: 1, g: 0.35, b: 0.3, a: 1}
+  power: 2
+  powerName: Estandarte Escarlate
+  powerDescription: "Crava um estandarte de guerra por 10 s: torres num raio de 4 causam +35% de dano e atacam 25% mais r\xE1pido. Recupera 35% da vida na hora."
+  powerCooldown: 50

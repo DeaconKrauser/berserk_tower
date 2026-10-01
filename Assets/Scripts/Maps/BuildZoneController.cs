@@ -32,7 +32,10 @@ public class BuildZoneController
         }
         else
         {
-            if (road < route.halfWidth + r * 0.85f) return "Não se constrói sobre a estrada";
+            // the base's ground diamond sits above the pivot (its front corner): check its centre too, and keep clear
+            // of the stones that ride over the logical edge (MapController.RoadOverhang)
+            float roadAtBase = Mathf.Min(road, route.DistanceToRoad(p + new Vector2(0, r * 0.6f)));
+            if (roadAtBase < route.halfWidth + MapController.RoadOverhang + r * 0.75f) return "Não se constrói sobre a estrada";
             if (map.Blocked(p, r, out var why)) return why;
         }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// A skin swaps the commander's look only (rig prefab + portrait). Gameplay never reads it.
+// A skin swaps the commander's look (rig prefab + portrait) and his [Q] power. Base stats and attributes never read it.
 [CreateAssetMenu(menuName = "Bastião/Skin do Comandante")]
 public class CommanderSkinData : ScriptableObject
 {
@@ -16,4 +16,9 @@ public class CommanderSkinData : ScriptableObject
     public int unlockCost;
     public bool unlockedByDefault;
     public Color accent = new(0.95f, 0.64f, 0.23f);
+    [Header("Poder [Q] desta skin")]
+    public CommanderPower power;
+    public string powerName = "Fúria Negra";
+    [TextArea] public string powerDescription;
+    public float powerCooldown = 45f;
 }

@@ -56,6 +56,7 @@ public class BattleInput : MonoBehaviour
             if (k[Key.Digit1 + i].wasPressedThisFrame) p.ToggleBuild(b.config.towers[i]);
         if (k.spaceKey.wasPressedThisFrame) b.waves.StartWave();
         if (k.uKey.wasPressedThisFrame && p.selected) p.TryUpgrade(p.selected);
+        if (k.tKey.wasPressedThisFrame && p.selected) p.selected.CyclePriority();
         if ((k.deleteKey.wasPressedThisFrame || k.backspaceKey.wasPressedThisFrame) && p.selected) p.Sell(p.selected);
         if (k.pKey.wasPressedThisFrame) b.TogglePause();
         if (k.fKey.wasPressedThisFrame) b.CycleSpeed();
